@@ -63,7 +63,8 @@ export function Admin() {
             .then(() => {
                 setNomeInput('')
                 setDescInput('')
-
+                setColorBackgroundInput('')
+                setColorTextInput('')
                 console.log("cadastrado com sucesso")
             })
             .catch((error) => {
@@ -129,7 +130,8 @@ export function Admin() {
             }
 
 
-            {/* Aqui so faz ele ficar no centro e aumenta o tamanho da das caixas, deixa o imput mais bonitinho com um em baixo do outro */}
+            {/* Aqui so faz ele ficar no centro e aumenta o tamanho da das caixas, deixa o imput mais bonitinho com um em baixo do outro , 
+            arruma os botões, fontes, tamanho das letras*/}
 
 
 
