@@ -1,25 +1,16 @@
 import { Link } from "react-router-dom"
+import { Header } from "../../components/header"
 
 export function Home() {
 
     return (
         <div className="total">
-            <h1>Anota senai</h1>
-            <span>Anotações     </span>
+            <Header />
+            <h1>Post-its</h1>
             <main>
-                <p>
-                    anotacao1
-                </p>
-                <Link to="/admin">
-                    mantem
-                </Link><br />
-                <Link to="/login">
-                    o
-                </Link> <br />
-                <Link to="/table">
-                    pique
-                </Link><br />
+                <h2>Pagina de post</h2>
             </main>
+            {/* faz uma pagina home legal, q explica o que é cada coisa e tal e com cores maneiras  */}
 
 
         </div>

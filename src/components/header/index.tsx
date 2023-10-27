@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import '../../img/logout.png'
 import { signOut } from "firebase/auth"
 import { auth } from "../../services/firebaseConnection"
-
+import { LiaSignOutAltSolid } from "react-icons/lia"
 
 
 export function Header() {
@@ -12,6 +12,7 @@ export function Header() {
 
 
     return (
+        // aqui a gnt tem q deixar com um fundo atras, deixar um espaçamento bom e tirar essa cor roxa de qnd ja visitou
         <header>
             <nav>
                 <div>
@@ -25,8 +26,10 @@ export function Header() {
                         Ver Itens
                     </Link>
 
+                    <button onClick={handleLogout} >
+                        <LiaSignOutAltSolid size={18} color="#FA2A20" />
+                    </button>
                 </div>
-                <img onClick={handleLogout} src="../../img/logout.png" alt="Sair" />
             </nav>
         </header>
     )

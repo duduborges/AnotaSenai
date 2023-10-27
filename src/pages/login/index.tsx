@@ -31,7 +31,7 @@ export function Login() {
     return (
         <div>
             <h1>Login</h1>
-            <p>coloca uma foto legal aqui</p>
+            {/* coloca uma foto legal aqui */}
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -41,6 +41,7 @@ export function Login() {
                 <input type="password" value={password} placeholder="*******" id="" onChange={(e) => setPassword(e.target.value)} />
                 <button>Entrar</button>
             </form>
+            {/* aqui a gente so deixa os inputs mais bonitinhos e deixa centralizado, tenta usar um template "padrão" tipo, com a msm paleta de cores no site todo  */}
         </div>
     )
 }
