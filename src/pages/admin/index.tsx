@@ -1,6 +1,7 @@
 import { Header } from "../../components/header"
 import { FormEvent, useState, useEffect } from "react"
 import { BsFillTrash3Fill } from 'react-icons/bs'
+import { } from "../../assets/css/index.css"
 import {
     addDoc, collection, onSnapshot,
     query, orderBy, doc, deleteDoc
@@ -82,23 +83,24 @@ export function Admin() {
 
             <Header />
             <form >
+                <div className="cadastrar">
                 <label >Nome do produto</label>
-                <input type="text" onChange={(e) => setNomeInput(e.target.value)} value={nomeInput} placeholder="Digite o nome do produto..." />
+                <input className="input-cadastrar" type="text" onChange={(e) => setNomeInput(e.target.value)} value={nomeInput} placeholder="Digite o nome do produto..." />
                 <label >Descrição do produto</label>
-                <input type="text" onChange={(e) => setDescInput(e.target.value)} value={descInput} placeholder="Digite a descrição do produto..." />
-
+                <input className="input-cadastrar" type="text" onChange={(e) => setDescInput(e.target.value)} value={descInput} placeholder="Digite a descrição do produto..." />
+                <div className="cores">
                 <label >Cor do Título</label>
-                <input type="color" onChange={(e) => setColorTextInput(e.target.value)} value={colorTextInput} />
+                <input  type="color" onChange={(e) => setColorTextInput(e.target.value)} value={colorTextInput} />
 
                 <label >Fundo do Postit</label>
                 <input type="color" onChange={(e) => setColorBackgroundInput(e.target.value)} value={colorBackgroundInput} />
-
+                </div>
                 {nomeInput !== "" && (
                     <div>
                         <h1>Veja como esta ficando:</h1>
                         <article className=""
                             style={{ backgroundColor: colorBackgroundInput }}
-                        >
+                            >
 
                             <p style={{ color: colorTextInput }}> {nomeInput}</p>
 
@@ -106,6 +108,7 @@ export function Admin() {
                     </div>
                 )}
                 <button onClick={handleRegister} type="submit">cadastrar </button>
+                </div>
             </form>
             <hr />
             <h3>Meus Post-its</h3>

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import { Header } from "../../components/header"
+import { } from "../../assets/css/index.css"
+
 
 export function Home() {
 

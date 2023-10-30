@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+*{
+    margin: 0
+}
+
+body{ 
+    background-color: aliceblue;
+}
+.cadastrar{
+    font-family: 'Satisfy', cursive;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border: 1px solid;
+    display: flex;
+    margin-top: 5.5rem;
+    width: 70rem;
+   
+    height: fit-content ;
+    flex-direction: column;
+    padding: 5rem;
+}
+.cadastrar label{
+    font-size: 40px;
+}
+.cores{
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: row;
+}
+
+.cores label{
+    margin: 0 0.1rem;
+}
+
+.input-cadastrar{
+    width: 50rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    border: 0;
+    margin: 0.2rem;
+}
+.login{
+    font-family: 'Satisfy', cursive;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border: 1px solid;
+    display: flex;
+    margin-top: 5.5rem;
+    width: fit-content;
+    height: fit-content ;
+    flex-direction: column;
+    padding: 5rem;
+}   
+.logo{  
+  
+    height: 15rem;
+    width: 15rem;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+
+}
+.input{
+    height: 2.2rem;
+    border-radius: 8px;
+    border: 0.1rem solid black;
+    margin-bottom: 0.3rem;
+    width: 19rem;
+}
+.entrar{
+    align-self:  center;
+    margin: auto;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 8px;
+}

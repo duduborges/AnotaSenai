@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import '../../img/logout.png'
+
 import { signOut } from "firebase/auth"
 import { auth } from "../../services/firebaseConnection"
 import { LiaSignOutAltSolid } from "react-icons/lia"

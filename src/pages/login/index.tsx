@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react"
 import { auth } from "../../services/firebaseConnection"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
+import { } from "../../assets/css/index.css"
 export function Login() {
 
     const [email, setEmail] = useState("")
@@ -29,17 +30,21 @@ export function Login() {
     }
 
     return (
-        <div>
+        <div className="login">
+            <img className="logo" src="src\assets\img\logo.png"/>
             <h1>Login</h1>
-            {/* coloca uma foto legal aqui */}
 
             <form onSubmit={handleSubmit}>
+                <div className="inputs">
                 <input
+                    className="input"
                     type="email" value={email} placeholder="Fulano@fulano.com" id="" onChange={(e) => setEmail(e.target.value)}
 
                 />
-                <input type="password" value={password} placeholder="*******" id="" onChange={(e) => setPassword(e.target.value)} />
-                <button>Entrar</button>
+                <input type="password" value={password} placeholder="*******" className="input" id="" onChange={(e) => setPassword(e.target.value)} />
+                </div>    
+                <button className="entrar">Entrar</button>
+                
             </form>
             {/* aqui a gente so deixa os inputs mais bonitinhos e deixa centralizado, tenta usar um template "padrão" tipo, com a msm paleta de cores no site todo  */}
         </div>
