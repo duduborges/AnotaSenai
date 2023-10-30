@@ -29,6 +29,7 @@ export function Admin() {
         const anotRef = collection(db, "Post-it")
         const queryRef = query(anotRef, orderBy("created", "asc"))
 
+
         const unsub = onSnapshot(queryRef, (snapshot) => {
             let lista = [] as AnotProps[];
             snapshot.forEach((doc) => {
@@ -64,8 +65,8 @@ export function Admin() {
             .then(() => {
                 setNomeInput('')
                 setDescInput('')
-                setColorBackgroundInput('')
-                setColorTextInput('')
+                setColorBackgroundInput('#000')
+                setColorTextInput('#FAFFFF')
                 console.log("cadastrado com sucesso")
             })
             .catch((error) => {
@@ -84,21 +85,21 @@ export function Admin() {
             <Header />
             <form >
                 <div className="cadastrar">
-                <label >Nome do produto</label>
+                <label >Titulo da anotação</label>
                 <input className="input-cadastrar" type="text" onChange={(e) => setNomeInput(e.target.value)} value={nomeInput} placeholder="Digite o nome do produto..." />
-                <label >Descrição do produto</label>
+                <label >Descrição da anotação</label>
                 <input className="input-cadastrar" type="text" onChange={(e) => setDescInput(e.target.value)} value={descInput} placeholder="Digite a descrição do produto..." />
                 <div className="cores">
                 <label >Cor do Título</label>
-                <input  type="color" onChange={(e) => setColorTextInput(e.target.value)} value={colorTextInput} />
+                <input className="input-colors" type="color" onChange={(e) => setColorTextInput(e.target.value)} value={colorTextInput} />
 
                 <label >Fundo do Postit</label>
-                <input type="color" onChange={(e) => setColorBackgroundInput(e.target.value)} value={colorBackgroundInput} />
+                <input className="input-colors" type="color" onChange={(e) => setColorBackgroundInput(e.target.value)} value={colorBackgroundInput} />
                 </div>
                 {nomeInput !== "" && (
-                    <div>
+                    <div className="previatotal">
                         <h1>Veja como esta ficando:</h1>
-                        <article className=""
+                        <article className="previa"
                             style={{ backgroundColor: colorBackgroundInput }}
                             >
 
@@ -107,14 +108,24 @@ export function Admin() {
                         </article>
                     </div>
                 )}
-                <button onClick={handleRegister} type="submit">cadastrar </button>
+                <button className="btn-cadastrar" onClick={handleRegister} type="submit">cadastrar </button>
                 </div>
             </form>
             <hr />
-            <h3>Meus Post-its</h3>
+            <h2>Meus Post-its</h2>
 
+            <div className="map-postit">
+                {anot === '' &&(
+                    <article id="art" className="previa" 
+                    >
+                    <p>Nenhuma Anotação ainda... :(</p>
+                    
+                        
+                    
+                </article>
+                )}
             {anot.map((anot) => (
-                <article key={anot.id}
+                <article id="art" className="previa" key={anot.id}
                     style={{
                         backgroundColor: anot.bg,
                         color: anot.color
@@ -122,15 +133,16 @@ export function Admin() {
                     <p>{anot.nome}</p>
                     <div>
                         <button>
-                            <BsPencil size={18} color="#FAC935" />
+                            <BsPencil size={30} color="#FAC935" />
                         </button>
                         <button onClick={() => handleDeleteAnotacao(anot.id)} >
-                            <BsFillTrash3Fill size={18} color="#FA2A20" />
+                            <BsFillTrash3Fill size={30} color="#FA2A20" />
                         </button>
                     </div>
                 </article>
             ))
-            }
+        }
+        </div>
 
 
             {/* Aqui so faz ele ficar no centro e aumenta o tamanho da das caixas, deixa o imput mais bonitinho com um em baixo do outro , 
