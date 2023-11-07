@@ -1,5 +1,5 @@
 import { Header } from "../../../components/header"
-import { FormEvent, useState, useEffect } from "react"
+import { FormEvent, useState, useEffect, useContext } from "react"
 import { BsFillTrash3Fill } from 'react-icons/bs'
 import { } from "../../../assets/css/index.css"
 import {
@@ -7,19 +7,68 @@ import {
     query, orderBy, doc, deleteDoc
 } from "firebase/firestore"
 import { db } from "../../../services/firebaseConnection"
+import { z } from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { BsPencil } from 'react-icons/bs'
+import { Input } from "../../../components/input"
+import { AuthContext } from "../../../contexts/AuthContext"
 
+
+
+const schema = z.object({
+
+    nome: z.string().nonempty("O campo Título é obrigatório"),
+    descricao: z.string().nonempty("O campo Descrição é obrigatório"),
+    bg: z.string().nonempty("O campo Cor de fundo é obrigatório"),
+    color: z.string().nonempty("O campo Cor da letra é obrigatório"),
+})
 interface AnotProps {
     id: string,
     nome: string,
     descricao: string,
     bg: string,
     color: string,
+    uid: string,
 }
+
+type FormData = z.infer<typeof schema>
+
+
 
 
 export function Admin() {
-    const [anot, setAnot] = useState<AnotProps[]>([])
+    const { user } = useContext(AuthContext)
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
+        resolver: zodResolver(schema),
+        mode: "onChange"
+    })
+
+    function onSubmit(data: FormData) {
+        addDoc(collection(db, "Post-it"), {
+            nome: data.nome,
+            descricao: data.descricao,
+            color: data.color,
+            bg: data.bg,
+            created: new Date(),
+            autor: user?.name,
+            uid: user?.uid,
+        })
+            .then(() => {
+                reset();
+                console.log("CADASTRADO COM SUCESSO")
+
+            })
+            .catch((error) => {
+                console.log(error)
+                console.log("ERRO AO CADASTRAR")
+
+            })
+
+    }
+    const [anot, setAnots] = useState<AnotProps[]>([])
+
     const [nomeInput, setNomeInput] = useState("")
     const [descInput, setDescInput] = useState("")
     const [colorBackgroundInput, setColorBackgroundInput] = useState("#000000")
@@ -39,9 +88,10 @@ export function Admin() {
                     descricao: doc.data().descricao,
                     bg: doc.data().bg,
                     color: doc.data().color,
+                    uid: doc.data().uid
                 })
             })
-            setAnot(lista)
+            setAnots(lista)
             return
         })
         return () => {
@@ -57,24 +107,13 @@ export function Admin() {
             alert("preencha todos os campos!!")
             return
         }
-        addDoc(collection(db, "Post-it"), {
-            nome: nomeInput,
-            descricao: descInput,
-            color: colorTextInput,
-            bg: colorBackgroundInput,
-            created: new Date()
 
-        })
-            .then(() => {
-                setNomeInput('')
-                setDescInput('')
-                setColorBackgroundInput('#000000')
-                setColorTextInput('#FFFFFF')
-                console.log("cadastrado com sucesso")
-            })
-            .catch((error) => {
-                console.log("erro ao cadastrar no banco" + error)
-            })
+        setNomeInput('')
+        setDescInput('')
+        setColorBackgroundInput('#000000')
+        setColorTextInput('#FFFFFF')
+        console.log("cadastrado com sucesso")
+
 
     }
     async function handleDeleteAnotacao(id: string) {
@@ -86,18 +125,50 @@ export function Admin() {
         <div><h1>Admin do neckles</h1>
 
             <Header />
-            <form >
+            <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="cadastrar">
                     <label >Titulo da anotação</label>
-                    <input className="input-cadastrar" type="text" onChange={(e) => setNomeInput(e.target.value)} value={nomeInput} placeholder="Dê um título para sua anotação" />
+                    <Input
+                        className="input-cadastrar"
+                        type="text"
+                        register={register}
+                        value={nomeInput}
+                        name="nome"
+                        error={errors.nome?.message}
+                        placeholder="Digite o titulo da anotação..."
+                    />
                     <label >Descrição da anotação</label>
-                    <input className="input-cadastrar" type="text" onChange={(e) => setDescInput(e.target.value)} value={descInput} placeholder="Dê uma descrição para sua anotação" />
+                    <Input
+                        className="input-cadastrar"
+                        type="text"
+                        value={descInput}
+                        register={register}
+                        name="descricao"
+                        error={errors.descricao?.message}
+                        placeholder="Digite o titulo da descrição..."
+                    />
                     <div className="cores">
-                        <label >Cor do Título</label>
-                        <input className="input-colors" type="color" onChange={(e) => setColorTextInput(e.target.value)} value={colorTextInput} />
+                        <Input
+                            className="input-colors"
+                            type="color"
+                            value={colorTextInput}
+                            register={register}
+                            name="color"
+                            error={errors.color?.message}
+                            placeholder=""
+                        />
+                        <label >⬅️Escolha uma cor para o texto</label>
+                        <label>Escolha uma cor para o fundo➡️</label>
+                        <Input
+                            className="input-colors"
+                            type="color"
+                            register={register}
+                            name="bg"
+                            value={colorBackgroundInput}
+                            error={errors.bg?.message}
+                            placeholder=""
+                        />
 
-                        <label >Fundo do Postit</label>
-                        <input className="input-colors" type="color" onChange={(e) => setColorBackgroundInput(e.target.value)} value={colorBackgroundInput} />
                     </div>
                     {nomeInput !== "" && (
                         <div className="previatotal">
@@ -140,7 +211,7 @@ export function Admin() {
             </div>
 
 
-            {/* Aqui so faz ele ficar no centro e aumenta o tamanho da das caixas, deixa o imput mais bonitinho com um em baixo do outro , 
+            {/* Aqui so faz ele ficar no centro e aumenta o tamanho da das caixas, deixa o imput mais bonitinho com um em baixo do outro ,
             arruma os botões, fontes, tamanho das letras*/}
 
 

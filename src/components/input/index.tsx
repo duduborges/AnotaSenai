@@ -7,15 +7,19 @@ interface InputProps {
     register: UseFormRegister<any>
     error?: string
     rules?: RegisterOptions
+    className?: string
+    value?: string
+    onChange?: string
 }
 
-export function Input({ name, placeholder, type, register, rules, error }: InputProps) {
+export function Input({ className, value, name, placeholder, type, register, rules, error }: InputProps) {
     return (
         <div>
             <input
-                className="input"
+                className={className}
                 placeholder={placeholder}
                 type={type}
+                value={value}
 
                 {...register(name, rules)}
                 id={name}
