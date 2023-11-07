@@ -9,7 +9,7 @@ interface InputProps {
     rules?: RegisterOptions
     className?: string
     value?: string
-    onChange?: string
+
 }
 
 export function Input({ className, value, name, placeholder, type, register, rules, error }: InputProps) {

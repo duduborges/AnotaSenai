@@ -37,7 +37,7 @@ export function Login() {
                 navigate("/", { replace: true })
             })
             .catch((error) => {
-                console.log("ERRO AO TENTAR ENTRAR")
+                alert("ERRO AO TENTAR ENTRAR")
                 console.log(error)
             })
     }
@@ -51,6 +51,7 @@ export function Login() {
             <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="inputs">
                     <Input
+                        className="input"
                         type="email"
                         placeholder="Digite seu email..."
                         name="email"
@@ -58,6 +59,7 @@ export function Login() {
                         register={register}
                     />
                     <Input
+                        className="input"
                         type="password"
                         placeholder="*******"
                         name="password"

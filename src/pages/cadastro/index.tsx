@@ -48,7 +48,7 @@ export function Register() {
                 navigate("/login", { replace: true })
             })
             .catch((error) => {
-                console.log("ERRO AO CADASTRAR ESTE USUARIO")
+                alert("ERRO AO CADASTRAR ESTE USUARIO")
                 console.log(error)
             })
     }
@@ -63,6 +63,7 @@ export function Register() {
                 <div className="inputs">
                     <Input
                         type="text"
+                        className="input"
                         placeholder="Digite seu nome..."
                         name="name"
                         error={errors.name?.message}
@@ -72,6 +73,7 @@ export function Register() {
                         type="email"
                         placeholder="Digite seu email..."
                         name="email"
+                        className="input"
                         error={errors.email?.message}
                         register={register}
                     />
@@ -79,6 +81,7 @@ export function Register() {
                         type="password"
                         placeholder="*******"
                         name="password"
+                        className="input"
                         error={errors.password?.message}
                         register={register}
                     />

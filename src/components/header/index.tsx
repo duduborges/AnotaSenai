@@ -12,10 +12,10 @@ import { Navigate } from "react-router-dom"
 export function Header() {
     const { signed, loadingAuth } = useContext(AuthContext)
 
-    // async function handleLogout() {
-    //     await signOut(auth)
+    async function handleLogout() {
+        await signOut(auth)
 
-    // }
+    }
 
 
     return (
@@ -33,8 +33,9 @@ export function Header() {
                         <p>Ver Itens</p>
                     </Link>
                     {!loadingAuth && signed && (
-                        <button className="deslogar" >
+                        <button className="deslogar" onClick={handleLogout} >
                             <AiOutlineUser alt="Sair" size={30} color="green" />
+                            Sair
                         </button>
 
                     )}

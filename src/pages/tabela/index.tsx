@@ -1,9 +1,10 @@
 import { Header } from "../../components/header";
 import { } from "../../assets/css/index.css"
-import { useState, useEffect } from "react"
-import { collection, query, getDocs, orderBy } from "firebase/firestore";
+import { useState, useEffect, useContext } from "react"
+import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { BsFillTrash3Fill, BsPencil } from "react-icons/bs";
+import { AuthContext } from "../../contexts/AuthContext";
 
 
 interface AnotProps {
@@ -18,12 +19,17 @@ interface AnotProps {
 
 
 export function Tabela() {
+    const { user } = useContext(AuthContext)
     const [anot, setAnots] = useState<AnotProps[]>([])
 
     useEffect(() => {
         function loadingAnots() {
+            if (!user?.uid) {
+                return
+            }
+
             const anotRef = collection(db, "Post-it")
-            const queryRef = query(anotRef, orderBy("created", "asc"))
+            const queryRef = query(anotRef, where("uid", "==", user.uid))
 
             getDocs(queryRef)
                 .then((snapshot) => {
@@ -43,23 +49,25 @@ export function Tabela() {
                 })
         }
         loadingAnots()
-    }, [])
+    }, [user])
 
 
     return (
         <div>
             <Header />
-            {anot.map((anot) => (
-                <article id="art" className="previa" key={anot.id}
-                    style={{
-                        backgroundColor: anot.bg,
-                        color: anot.color
-                    }}>
-                    <p>{anot.nome}</p>
+            <div className="map-postit">
+                {anot.map((anot) => (
+                    <article id="art" className="final" key={anot.id}
+                        style={{
+                            backgroundColor: anot.bg,
+                            color: anot.color
+                        }}>
+                        <p>{anot.nome}</p>
 
-                </article>
-            ))
-            }
+                    </article>
+                ))
+                }
+            </div>
         </div>
 
     )

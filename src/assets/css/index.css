@@ -11,6 +11,7 @@ body {
 }
 
 .cadastrar {
+    margin-bottom: 3rem;
     font-family: 'Satisfy', cursive;
     align-items: center;
     text-align: center;
@@ -52,6 +53,26 @@ h2 {
     border: 0;
     font-family: 'Handlee', cursive;
     font-size: xx-large;
+}
+
+.final {
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px 5px rgb(179, 175, 175);
+    width: 25rem;
+    height: 15rem;
+    text-align: center;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.final:hover {
+    scale: 1.1;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .previa {

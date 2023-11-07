@@ -4,7 +4,7 @@ import { BsFillTrash3Fill } from 'react-icons/bs'
 import { } from "../../../assets/css/index.css"
 import {
     addDoc, collection, onSnapshot,
-    query, orderBy, doc, deleteDoc
+    query, orderBy, doc, deleteDoc, where, getDocs,
 } from "firebase/firestore"
 import { db } from "../../../services/firebaseConnection"
 import { z } from "zod"
@@ -39,7 +39,11 @@ type FormData = z.infer<typeof schema>
 
 export function Admin() {
     const { user } = useContext(AuthContext)
-
+    const [anot, setAnots] = useState<AnotProps[]>([])
+    const [nomeInput, setNomeInput] = useState("")
+    const [descInput, setDescInput] = useState("")
+    const [colorBackgroundInput, setColorBackgroundInput] = useState("#000000")
+    const [colorTextInput, setColorTextInput] = useState("#FFFFFF")
     const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
         resolver: zodResolver(schema),
         mode: "onChange"
@@ -67,51 +71,41 @@ export function Admin() {
             })
 
     }
-    const [anot, setAnots] = useState<AnotProps[]>([])
 
-    const [nomeInput, setNomeInput] = useState("")
-    const [descInput, setDescInput] = useState("")
-    const [colorBackgroundInput, setColorBackgroundInput] = useState("#000000")
-    const [colorTextInput, setColorTextInput] = useState("#FFFFFF")
 
     useEffect(() => {
-        const anotRef = collection(db, "Post-it")
-        const queryRef = query(anotRef, orderBy("created", "asc"))
+        function loadingAnots() {
+            if (!user?.uid) {
+                return
+            }
 
+            const anotRef = collection(db, "Post-it")
+            const queryRef = query(anotRef, where("uid", "==", user.uid))
 
-        const unsub = onSnapshot(queryRef, (snapshot) => {
-            let lista = [] as AnotProps[];
-            snapshot.forEach((doc) => {
-                lista.push({
-                    id: doc.id,
-                    nome: doc.data().nome,
-                    descricao: doc.data().descricao,
-                    bg: doc.data().bg,
-                    color: doc.data().color,
-                    uid: doc.data().uid
+            getDocs(queryRef)
+                .then((snapshot) => {
+                    let lista = [] as AnotProps[];
+                    snapshot.forEach((doc) => {
+                        lista.push({
+                            id: doc.id,
+                            nome: doc.data().nome,
+                            descricao: doc.data().descricao,
+                            bg: doc.data().bg,
+                            color: doc.data().color,
+                            uid: doc.data().uid
+                        })
+                    })
+
+                    setAnots(lista)
                 })
-            })
-            setAnots(lista)
-            return
-        })
-        return () => {
-            unsub();
         }
-    }, [])
+        loadingAnots()
+    }, [user])
 
 
 
     function handleRegister(e: FormEvent) {
-        e.preventDefault();
-        if (nomeInput == "" || descInput == '') {
-            alert("preencha todos os campos!!")
-            return
-        }
 
-        setNomeInput('')
-        setDescInput('')
-        setColorBackgroundInput('#000000')
-        setColorTextInput('#FFFFFF')
         console.log("cadastrado com sucesso")
 
 
@@ -130,9 +124,10 @@ export function Admin() {
                     <label >Titulo da anotação</label>
                     <Input
                         className="input-cadastrar"
+
                         type="text"
                         register={register}
-                        value={nomeInput}
+
                         name="nome"
                         error={errors.nome?.message}
                         placeholder="Digite o titulo da anotação..."
@@ -141,7 +136,7 @@ export function Admin() {
                     <Input
                         className="input-cadastrar"
                         type="text"
-                        value={descInput}
+
                         register={register}
                         name="descricao"
                         error={errors.descricao?.message}
@@ -151,7 +146,7 @@ export function Admin() {
                         <Input
                             className="input-colors"
                             type="color"
-                            value={colorTextInput}
+
                             register={register}
                             name="color"
                             error={errors.color?.message}
@@ -164,13 +159,13 @@ export function Admin() {
                             type="color"
                             register={register}
                             name="bg"
-                            value={colorBackgroundInput}
+
                             error={errors.bg?.message}
                             placeholder=""
                         />
 
                     </div>
-                    {nomeInput !== "" && (
+                    {/* {nomeInput !== "" && (
                         <div className="previatotal">
                             <h1>Veja como esta ficando:</h1>
                             <article className="previa"
@@ -181,7 +176,7 @@ export function Admin() {
 
                             </article>
                         </div>
-                    )}
+                    )} */}
                     <button className="btn-cadastrar" onClick={handleRegister} type="submit">Anotar </button>
                 </div>
             </form>
