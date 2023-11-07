@@ -7,13 +7,13 @@ import { getAuth } from 'firebase/auth'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBF4_tKcDAFfxSJ25npjLrakI_w9V1lHS8",
-  authDomain: "dnv-fds.firebaseapp.com",
-  projectId: "dnv-fds",
-  storageBucket: "dnv-fds.appspot.com",
-  messagingSenderId: "529368204933",
-  appId: "1:529368204933:web:141b9643f6f03b62240bec",
-  measurementId: "G-4M443NCT3C"
+  apiKey: "AIzaSyAaPhVWAW8L3G-lOsPwL1EO-rwgNYJ5OAo",
+  authDomain: "crud-sa.firebaseapp.com",
+  projectId: "crud-sa",
+  storageBucket: "crud-sa.appspot.com",
+  messagingSenderId: "91850176725",
+  appId: "1:91850176725:web:fd95fb6e98db9c15550a5c",
+  measurementId: "G-KPSQ91Z0WD"
 };
 
 

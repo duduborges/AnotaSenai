@@ -13,6 +13,10 @@ a:visited {
 
 }
 
+button {
+    cursor: pointer;
+}
+
 /* mouse over */
 a:hover {
     cursor: pointer;

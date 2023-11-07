@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom"
 import { Home } from './pages/home'
-import { Admin } from './pages/admin'
+import { Admin } from './pages/tabela/admin'
 import { Login } from './pages/login'
 import { Tabela } from "./pages/tabela"
+import { Register } from "./pages/cadastro"
 
 
-import { Private } from "./pages/routes/private"
+import { Private } from "./routes/Private"
 
 
 const router = createBrowserRouter([
@@ -18,11 +19,16 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/admin',
+    path: '/post/new',
     element: <Private><Admin /></Private>
   },
   {
-    path: '/table',
+    path: "/register",
+    element: <Register />
+
+  },
+  {
+    path: '/post',
     element: <Private><Tabela /></Private>
   }
 ])

@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 @import url("../css/utli.css");
-*{
+
+* {
     margin: 0
 }
 
-body{ 
+body {
     background-color: aliceblue;
 }
-.cadastrar{
+
+.cadastrar {
     font-family: 'Satisfy', cursive;
     align-items: center;
     text-align: center;
@@ -17,27 +19,31 @@ body{
     display: flex;
     margin-top: 5.5rem;
     width: 70rem;
-   
-    height: fit-content ;
+
+    height: fit-content;
     flex-direction: column;
     padding: 5rem;
 }
-.cadastrar label{
+
+.cadastrar label {
     font-size: 40px;
 }
-.cores{
+
+.cores {
     display: flex;
     margin-top: 2rem;
     flex-direction: row;
 }
 
-.cores label{
+.cores label {
     margin: 0 2rem;
 }
-h2{
+
+h2 {
     text-align: center;
 }
-.btn-cadastrar{
+
+.btn-cadastrar {
     background-color: rgb(65, 65, 224);
     width: 20rem;
     height: 3rem;
@@ -47,59 +53,67 @@ h2{
     font-family: 'Handlee', cursive;
     font-size: xx-large;
 }
-.previa{
+
+.previa {
     width: 25rem;
     height: 15rem;
     text-align: center;
-    margin: 1rem 0 ;
+    margin: 1rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.previatotal{
+
+.previatotal {
     display: flex;
     flex-direction: column;
     margin: auto;
     font-family: 'Handlee', cursive;
     align-items: center;
-} 
-header{
+}
+
+header {
     margin-top: 1rem;
 }
 
 
-.navbar{
+.navbar {
     border-radius: 8px;
-    box-shadow: 1px 1px 100px 1px   rgba(0, 0, 0, 0.288);
+    box-shadow: 1px 1px 100px 1px rgba(0, 0, 0, 0.288);
     margin-top: 1rem;
     background-color: aliceblue;
     display: flex;
     width: fit-content;
     margin: auto;
-    padding: 1rem   ;
+    padding: 1rem;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
+
 .navbar p {
     font-size: 25px;
     margin: 0 1rem;
 
 }
-.deslogar{
+
+.deslogar {
     background-color: #00000000;
     border: 0;
 }
+
 .previa p {
     font-size: larger;
     width: 25rem;
     word-break: break-all;
-} 
-#art{
+}
+
+#art {
     margin: 4rem 3rem;
 }
-.map-postit{
-    display: flex ;
+
+.map-postit {
+    display: flex;
     font-family: 'Handlee', cursive;
 
     flex-direction: row;
@@ -108,53 +122,82 @@ header{
     flex-wrap: wrap;
     width: 100%;
 }
-.input-colors{
+
+.input-colors {
     height: 3rem;
     border: 2px dotted grey;
     margin: auto;
-    
+
 }
 
-.input-cadastrar{
+main {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.input-cadastrar {
     width: 50rem;
     height: 2.5rem;
     border-radius: 10px;
     border: 0;
     margin: 0.2rem;
 }
-.login{
+
+.link-cad {
+    margin: 1rem 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.login {
     font-family: 'Satisfy', cursive;
     align-items: center;
     text-align: center;
     margin: auto;
-    border: 1px solid;
+    border: 1px solid rgba(128, 128, 128, 0.164);
     display: flex;
+    border-radius: 10px;
     margin-top: 5.5rem;
     width: fit-content;
-    height: fit-content ;
+    height: fit-content;
     flex-direction: column;
-    padding: 5rem;
-}   
-.logo{  
-  
+    padding: 4rem;
+    box-shadow: 1px 1px 35px 20px rgb(179, 175, 175);
+}
+
+.erro {
+    color: red;
+    font-size: smaller;
+
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: start;
+    text-shadow: red 1px 0 5px;
+}
+
+.logo {
+
     height: 15rem;
     width: 15rem;
 }
-.inputs{
+
+.inputs {
     display: flex;
     flex-direction: column;
     margin-bottom: 0.5em;
 
+
 }
-.input{
+
+.input {
     height: 2.2rem;
     border-radius: 8px;
     border: 0.1rem solid black;
-    margin-bottom: 0.3rem;
+    margin: 0.4rem 0;
     width: 19rem;
 }
-.entrar{
-    align-self:  center;
+
+.entrar {
+    align-self: center;
     margin: auto;
     width: 15rem;
     height: 3rem;

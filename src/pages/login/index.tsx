@@ -1,52 +1,81 @@
-import { FormEvent, useState } from "react"
-import { auth } from "../../services/firebaseConnection"
-import { signInWithEmailAndPassword } from "firebase/auth"
-import { useNavigate } from "react-router-dom"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { } from "../../assets/css/index.css"
+import { Input } from "../../components/input"
+import { Link, useNavigate } from "react-router-dom"
+import { signInWithEmailAndPassword, signOut } from "firebase/auth"
+import { auth } from "../../services/firebaseConnection"
+import { useEffect } from "react"
+
+
+const schema = z.object({
+    email: z.string().email("Insira um email válido").nonempty("O campo email é obrigatório"),
+    password: z.string().nonempty("O campo senha é obrigatorio")
+})
+type FormData = z.infer<typeof schema>
+
+
+
 export function Login() {
-
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
     const navigate = useNavigate()
-
-    function handleSubmit(e: FormEvent) {
-        e.preventDefault()
-
-        if (email === "" || password === "") {
-            alert("preencha todos os campos")
-            return;
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+        resolver: zodResolver(schema),
+        mode: "onChange"
+    })
+    useEffect(() => {
+        async function handleLogout() {
+            await signOut(auth)
         }
+        handleLogout()
+    }, [])
 
-        signInWithEmailAndPassword(auth, email, password)
+    function onSubmit(data: FormData) {
+        signInWithEmailAndPassword(auth, data.email, data.password)
             .then(() => {
-
-                navigate("/admin", { replace: true })
+                console.log("LOGADO COM SUCESSO!")
+                navigate("/", { replace: true })
             })
             .catch((error) => {
-                console.log("ERRO AO FAZER LOGIN")
+                console.log("ERRO AO TENTAR ENTRAR")
                 console.log(error)
             })
-
     }
+
 
     return (
         <div className="login">
-            <img className="logo" src="src\assets\img\logo.png"/>
+            <img className="logo" src="src\assets\img\logo.png" />
             <h1>Login</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="inputs">
-                <input
-                    className="input"
-                    type="email" value={email} placeholder="Fulano@fulano.com" id="" onChange={(e) => setEmail(e.target.value)}
-
-                />
-                <input type="password" value={password} placeholder="*******" className="input" id="" onChange={(e) => setPassword(e.target.value)} />
-                </div>    
+                    <Input
+                        type="email"
+                        placeholder="Digite seu email..."
+                        name="email"
+                        error={errors.email?.message}
+                        register={register}
+                    />
+                    <Input
+                        type="password"
+                        placeholder="*******"
+                        name="password"
+                        error={errors.password?.message}
+                        register={register}
+                    />
+                </div>
                 <button className="entrar">Entrar</button>
-                
+
             </form>
+            <Link className="link-cad" to="/register">
+                Ainda não possui uma conta? Cadastre-se!
+            </Link>
             {/* aqui a gente so deixa os inputs mais bonitinhos e deixa centralizado, tenta usar um template "padrão" tipo, com a msm paleta de cores no site todo  */}
         </div>
     )
+
+
+
+
 }

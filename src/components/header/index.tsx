@@ -1,14 +1,21 @@
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
 import { Link } from "react-router-dom"
-import {} from "../../assets/css/index.css"
+import { } from "../../assets/css/index.css"
 import { signOut } from "firebase/auth"
 import { auth } from "../../services/firebaseConnection"
-import { LiaSignOutAltSolid } from "react-icons/lia"
+import { BiLogIn } from "react-icons/bi"
+import { AiOutlineUser } from "react-icons/ai"
+import { Navigate } from "react-router-dom"
 
 
 export function Header() {
-    async function handleLogout() {
-        await signOut(auth)
-    }
+    const { signed, loadingAuth } = useContext(AuthContext)
+
+    // async function handleLogout() {
+    //     await signOut(auth)
+
+    // }
 
 
     return (
@@ -17,18 +24,28 @@ export function Header() {
             <nav>
                 <div className="navbar">
                     <Link to="/">
-                    <p>Home</p>
-                    </Link>
-                    <Link to="/admin">
-                        <p>Cadastrar item</p>
-                    </Link>
-                    <Link to="/table">
-                        <p>Ver Itens</p>
+                        <p>Home</p>
+                    </Link><Link to="/post/new">
+                        <p>Cadastrar Post-it</p>
                     </Link>
 
-                    <button className="deslogar" onClick={handleLogout} >
-                        <LiaSignOutAltSolid size={30}  color="#FA2A20" />
-                    </button>
+                    <Link to="/post">
+                        <p>Ver Itens</p>
+                    </Link>
+                    {!loadingAuth && signed && (
+                        <button className="deslogar" >
+                            <AiOutlineUser alt="Sair" size={30} color="green" />
+                        </button>
+
+                    )}
+                    {!loadingAuth && !signed && (
+                        <Link to={"/login"}>
+                            <BiLogIn size={30} color={"red"} />
+                        </Link>
+                    )}
+
+
+
                 </div>
             </nav>
         </header>
