@@ -30,6 +30,7 @@ interface AnotProps {
     bg: string,
     color: string,
     uid: string,
+
 }
 
 type FormData = z.infer<typeof schema>
@@ -39,7 +40,7 @@ type FormData = z.infer<typeof schema>
 
 export function Admin() {
     const { user } = useContext(AuthContext)
-    const [anot, setAnots] = useState<AnotProps[]>([])
+    const [anots, setAnots] = useState<AnotProps[]>([])
     const [nomeInput, setNomeInput] = useState("")
     const [descInput, setDescInput] = useState("")
     const [colorBackgroundInput, setColorBackgroundInput] = useState("#000000")
@@ -49,6 +50,10 @@ export function Admin() {
         mode: "onChange"
     })
 
+    const [editAnot, setEditAnot] = useState({
+        enabled: false,
+        anot: ''
+    })
     function onSubmit(data: FormData) {
         addDoc(collection(db, "Post-it"), {
             nome: data.nome,
@@ -97,14 +102,42 @@ export function Admin() {
                     })
 
                     setAnots(lista)
+                    return
                 })
         }
-        loadingAnots()
+        loadingAnots();
     }, [user])
 
+    // function handleSaveEdit() {
+    //     const findIndexAnot = anots.findIndex(anot => anot === editAnot.anot)
+    //     const allAnots = [...anots]
+
+    //     allAnots[findIndexAnot] = nomeInput && descInput && colorBackgroundInput && colorTextInput
+    //     setAnots(allAnots)
+
+    //     setEditAnot({
+    //         enabled: false,
+    //         anot: ''
+    //     })
+    //     setNomeInput("")
+    //     setDescInput("")
+    //     setColorBackgroundInput("")
+    //     setColorTextInput("")
+    // }
 
 
-    function handleRegister(e: FormEvent) {
+    function handleEdit(nome: string, color: string, descricao: string, bg: string) {
+        setNomeInput(nome)
+        setDescInput(descricao)
+        setColorBackgroundInput(bg)
+        setColorTextInput(color)
+        // setEditAnot({
+        //     enabled: true,
+        //     anot: nome
+        // })
+    }
+
+    function handleRegister() {
 
         console.log("cadastrado com sucesso")
 
@@ -124,10 +157,10 @@ export function Admin() {
                     <label >Titulo da anotação</label>
                     <Input
                         className="input-cadastrar"
-
+                        value={nomeInput}
                         type="text"
                         register={register}
-
+                        onChange={(e) => setNomeInput(e.target.value)}
                         name="nome"
                         error={errors.nome?.message}
                         placeholder="Digite o titulo da anotação..."
@@ -136,8 +169,9 @@ export function Admin() {
                     <Input
                         className="input-cadastrar"
                         type="text"
-
+                        value={descInput}
                         register={register}
+                        onChange={(e) => setDescInput(e.target.value)}
                         name="descricao"
                         error={errors.descricao?.message}
                         placeholder="Digite o titulo da descrição..."
@@ -146,8 +180,10 @@ export function Admin() {
                         <Input
                             className="input-colors"
                             type="color"
-
+                            value={colorTextInput}
+                            defaultValue={"#FFFFFF"}
                             register={register}
+                            onChange={(e) => setColorTextInput(e.target.value)}
                             name="color"
                             error={errors.color?.message}
                             placeholder=""
@@ -156,36 +192,38 @@ export function Admin() {
                         <label>Escolha uma cor para o fundo➡️</label>
                         <Input
                             className="input-colors"
+                            value={colorBackgroundInput}
                             type="color"
                             register={register}
+                            onChange={(e) => setColorBackgroundInput(e.target.value)}
                             name="bg"
-
+                            defaultValue={"#000000"}
                             error={errors.bg?.message}
                             placeholder=""
                         />
 
                     </div>
-                    {/* {nomeInput !== "" && (
+                    {nomeInput !== "" && (
                         <div className="previatotal">
                             <h1>Veja como esta ficando:</h1>
                             <article className="previa"
                                 style={{ backgroundColor: colorBackgroundInput }}
                             >
-
                                 <p style={{ color: colorTextInput }}> {nomeInput}</p>
 
                             </article>
                         </div>
-                    )} */}
+                    )}
                     <button className="btn-cadastrar" onClick={handleRegister} type="submit">Anotar </button>
                 </div>
             </form>
+            <br />
             <hr />
             <h2>Gerenciar meus Post-its</h2>
 
             <div className="map-postit">
 
-                {anot.map((anot) => (
+                {anots.map((anot) => (
                     <article id="art" className="previa" key={anot.id}
                         style={{
                             backgroundColor: anot.bg,
@@ -193,7 +231,7 @@ export function Admin() {
                         }}>
                         <p>{anot.nome}</p>
                         <div>
-                            <button className="icon-ger">
+                            <button className="icon-ger" onClick={() => handleEdit(anot.nome, anot.color, anot.descricao, anot.bg,)} >
                                 <BsPencil size={30} color="#FAC935" />
                             </button>
                             <button className="icon-ger" onClick={() => handleDeleteAnotacao(anot.id)} >
