@@ -48,9 +48,11 @@ export function Home() {
             </div>
             <footer>
                 <p>©EduardoBorges</p>
-                <AiFillGithub size={40} />
-                <AiOutlineInstagram color={"#bf0dcf"} size={40} />
-                <AiOutlineLinkedin color={"#0b65cc"} size={40} />
+                <a href="https://github.com/duduborges"><AiFillGithub size={40} /></a>
+                <a href="https://www.instagram.com/borges.ip/"><AiOutlineInstagram color={"#bf0dcf"} size={40} /></a>
+                <a href="https://www.linkedin.com/in/eduardo-borges-cambraia-809225269/"> <AiOutlineLinkedin color={"#0b65cc"} size={40} /></a>
+                
+               
 
             </footer>
             {/* faz uma pagina home legal, q explica o que é cada coisa e tal e com cores maneiras  */}

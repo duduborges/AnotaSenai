@@ -45,7 +45,7 @@ export function Register() {
                     uid: user.user.uid
                 })
                 console.log("CADASTRADO COM SUCESSO")
-                navigate("/login", { replace: true })
+                navigate("/", { replace: true })
             })
             .catch((error) => {
                 alert("ERRO AO CADASTRAR ESTE USUARIO")

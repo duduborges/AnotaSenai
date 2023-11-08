@@ -9,6 +9,7 @@ interface InputProps {
     rules?: RegisterOptions
     className?: string
     value?: string
+    
 
 }
 

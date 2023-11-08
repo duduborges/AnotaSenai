@@ -34,14 +34,14 @@ export function Header() {
                     </Link>
                     {!loadingAuth && signed && (
                         <button className="deslogar" onClick={handleLogout} >
-                            <AiOutlineUser alt="Sair" size={30} color="green" />
+                            <AiOutlineUser alt="Sair" size={30} />
                             Sair
                         </button>
 
                     )}
                     {!loadingAuth && !signed && (
                         <Link to={"/login"}>
-                            <BiLogIn size={30} color={"red"} />
+                            <BiLogIn size={30} />
                         </Link>
                     )}
 
