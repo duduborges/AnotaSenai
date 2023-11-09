@@ -3,6 +3,7 @@ import { Header } from "../../components/header"
 import { } from "../../assets/css/index.css"
 import { AiOutlineWhatsApp, AiFillGithub, AiOutlineInstagram, AiOutlineLinkedin } from "react-icons/ai"
 import { SiGmail } from "react-icons/si"
+
 export function Home() {
 
     return (
@@ -15,6 +16,7 @@ export function Home() {
                     <h5>Anote rapidamente informações importantes, escolha cores para organizar suas anotações e acesse suas notas de qualquer lugar, a qualquer momento.</h5>
                 </main>
                 <div>
+
                     <h3>O que oferecemos:</h3>
                     <li>Personalização Simples: Escolha cores para fundo e texto.</li>
                     <li>Acesso em Qualquer Lugar: Suas notas estão disponíveis em todos os seus dispositivos.</li>
@@ -51,8 +53,8 @@ export function Home() {
                 <a href="https://github.com/duduborges"><AiFillGithub size={40} /></a>
                 <a href="https://www.instagram.com/borges.ip/"><AiOutlineInstagram color={"#bf0dcf"} size={40} /></a>
                 <a href="https://www.linkedin.com/in/eduardo-borges-cambraia-809225269/"> <AiOutlineLinkedin color={"#0b65cc"} size={40} /></a>
-                
-               
+
+
 
             </footer>
             {/* faz uma pagina home legal, q explica o que é cada coisa e tal e com cores maneiras  */}

@@ -138,7 +138,10 @@ export function Admin() {
     }
 
     function handleRegister() {
-
+        setNomeInput('')
+        setDescInput('')
+        setColorBackgroundInput('#000000')
+        setColorTextInput('#FFFFFF')
         console.log("cadastrado com sucesso")
 
 
@@ -156,6 +159,7 @@ export function Admin() {
                 <div className="cadastrar">
                     <label >Titulo da anotação</label>
                     <Input
+                        autoComplete="off"
                         className="input-cadastrar"
                         value={nomeInput}
                         type="text"
@@ -168,6 +172,7 @@ export function Admin() {
                     <label >Descrição da anotação</label>
                     <Input
                         className="input-cadastrar"
+                        autoComplete="off"
                         type="text"
                         value={descInput}
                         register={register}

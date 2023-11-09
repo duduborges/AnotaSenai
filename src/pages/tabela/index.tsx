@@ -52,23 +52,31 @@ export function Tabela() {
 
 
     return (
+
         <div>
             <Header />
             <div className="map-postit">
                 {anot.map((anot) => (
-                    <article id="art" className="final" key={anot.id}
+
+                    <article id="art" className="final " key={anot.id}
                         style={{
                             backgroundColor: anot.bg,
                             color: anot.color
                         }}>
-                        <p>{anot.nome}</p>
+                        <div >
+                            <p id="title-table">{anot.nome}</p>
+                            <p id="desc-table">{anot.descricao}</p>
+                        </div>
+
 
                     </article>
+
                 ))
                 }
             </div>
         </div>
 
     )
+
 }
 // ainda nao precisa mexer aqui
