@@ -3,7 +3,6 @@ import { } from "../../assets/css/index.css"
 import { useState, useEffect, useContext } from "react"
 import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
-import { BsFillTrash3Fill, BsPencil } from "react-icons/bs";
 import { AuthContext } from "../../contexts/AuthContext";
 
 
