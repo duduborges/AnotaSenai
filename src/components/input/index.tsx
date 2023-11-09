@@ -10,13 +10,15 @@ interface InputProps {
     className?: string
     value?: string
     defaultValue?: string
+    autoComplete?: string
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function Input({ defaultValue, className, value, name, placeholder, type, register, rules, error, onChange }: InputProps) {
+export function Input({ autoComplete, defaultValue, className, value, name, placeholder, type, register, rules, error, onChange }: InputProps) {
     return (
         <div>
             <input
+                autoComplete={autoComplete}
                 className={className}
                 placeholder={placeholder}
                 type={type}
