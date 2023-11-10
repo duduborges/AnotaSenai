@@ -224,7 +224,7 @@ export function Admin() {
             </form>
             <br />
             <hr />
-            <h2>Gerenciar meus Post-its</h2>
+            <h2 id="gerenciar">Gerenciar meus Post-its</h2>
 
             <div className="map-postit">
 

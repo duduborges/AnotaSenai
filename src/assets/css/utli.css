@@ -1,6 +1,29 @@
+button {
+    cursor: pointer;
+}
+
+
+
+
+
+div :target {
+    scroll-behavior: auto;
+    scroll-margin-top: 100px
+}
+
+* {
+    margin: 0;
+
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 a:link {
     cursor: pointer;
-    color: black;
+    color: white;
     text-decoration: none;
 
 }
@@ -8,30 +31,30 @@ a:link {
 /* link que foi visitado */
 a:visited {
     cursor: pointer;
-    color: black;
+    color: white;
     text-decoration: none;
 
-}
-
-button {
-    cursor: pointer;
 }
 
 /* mouse over */
 a:hover {
     cursor: pointer;
-    color: black;
+    color: white;
     text-decoration: none;
 
 }
 
 /* link selecionado */
 a:active {
-    color: black;
+    color: white;
     text-decoration: none;
 
 }
 
 div:target {
     scroll-margin-top: 100px
+}
+
+html {
+    scroll-behavior: smooth;
 }

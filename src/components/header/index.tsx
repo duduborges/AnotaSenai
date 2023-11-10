@@ -7,6 +7,8 @@ import { auth } from "../../services/firebaseConnection"
 import { BiLogIn } from "react-icons/bi"
 import { AiOutlineUser } from "react-icons/ai"
 import { Navigate } from "react-router-dom"
+import { ImPencil2 } from "react-icons/im"
+
 
 
 export function Header() {
@@ -23,26 +25,31 @@ export function Header() {
         <header >
             <nav>
                 <div className="navbar">
-                    <Link to="/">
-                        <p>Home</p>
-                    </Link><Link to="/post/new">
-                        <p>Cadastrar Post-it</p>
-                    </Link>
+                    <div><ImPencil2 size={30} color={"#95BFA4"} /></div>
 
-                    <Link to="/post">
-                        <p>Ver Itens</p>
-                    </Link>
+                    <a href="#inicio"><p>Início</p></a>
+
+                    <a href="#post"><p>Post-it</p></a>
+                    <a href="#fav"><p>Favorito</p></a>
+                    <a href="#contact"><p>Contato</p></a>
+                    <a href="#team"><p>Equipe</p></a>
+                    <a href="#help"><p>Ajuda</p></a>
+
+
                     {!loadingAuth && signed && (
-                        <button className="deslogar" onClick={handleLogout} >
-                            <AiOutlineUser alt="Sair" size={30} />
-                            Sair
-                        </button>
+                        <div id="in-out">
+                            <p onClick={handleLogout}>Sair</p>
+                        </div>
+
 
                     )}
                     {!loadingAuth && !signed && (
-                        <Link to={"/login"}>
-                            <BiLogIn size={30} />
-                        </Link>
+                        <div id="in-out">
+                            <Link to={"/login"}>
+                                Entrar
+                            </Link>
+                        </div>
+
                     )}
 
 

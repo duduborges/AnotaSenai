@@ -1,10 +1,10 @@
-import { Header } from "../../../components/header";
-import { } from "../../assets/css/index.css"
+
+import { } from "../../../assets/css/index.css"
 import { useState, useEffect, useContext } from "react"
 import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
 import { db } from "../../../services/firebaseConnection";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { IoChevronBackSharp } from "react-icons/io"
+import { IoChevronBackSharp } from "react-icons/io5";
 
 
 interface AnotProps {
@@ -18,7 +18,7 @@ interface AnotProps {
 
 
 
-export function Tabela() {
+export function Favorito() {
     const { user } = useContext(AuthContext)
     const [anot, setAnots] = useState<AnotProps[]>([])
 
