@@ -126,7 +126,7 @@ h2 {
 
 
 .subir {
-    width: fit-content;
+    width: fit-content +5px;
     position: fixed;
     border: 1px #779782 solid;
     bottom: 0;
@@ -480,4 +480,95 @@ main {
     background-color: #F28444;
     height: 6.5rem;
     width: 35%;
+}
+
+.equipe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4rem 0;
+
+}
+
+.fotos {
+    display: flex;
+    flex-direction: row;
+    text-align: unset;
+
+    justify-content: center;
+
+}
+
+.img-team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+
+
+}
+
+.nome-team {
+    font-size: xx-large;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.title-team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+
+
+    font-size: 45px;
+    color: #FFFFFF;
+
+
+    font-family: 'Luckiest Guy', cursive;
+    width: 40rem;
+    height: 6.5rem;
+    background-color: #F2889B;
+    text-align: center;
+    margin: 0rem auto 4rem auto;
+}
+
+.icon-team {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+.equipe-total {
+    margin: 0;
+    background-color: #95BFA4;
+}
+
+#top-team {
+    width: 100%;
+}
+
+.img-uni {
+    border-radius: 50%;
+    border: #000000 1px solid;
+}
+
+.contact-title {
+    background-color: #F29E38;
+    width: 40rem;
+    height: 5rem;
+    border-top-right-radius: 70%;
+}
+
+#sla-top {
+    width: 100%;
+    position: absolute;
+    height: 10rem;
+    border-bottom-left-radius: 70%;
+    border-bottom-right-radius: 70%;
+    background-color: #FFF8EE;
 }

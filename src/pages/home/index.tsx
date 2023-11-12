@@ -68,6 +68,125 @@ export function Home() {
 
                         </Link>*/}
                     </div>
+
+
+
+                    <div className="equipe-total">
+                        <div id="sla-top">
+                            <div className="title-team">
+                                <p>Equipe</p>
+
+                            </div>
+                        </div>
+
+                        <div className="equipe">
+                            <div className="fotos">
+
+                                <div className="img-team">
+                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+
+                                    <p className="nome-team">Arthur </p>
+                                    <p className="nome-team">D'eça </p>
+                                </div>
+                                <div className="icon-team">
+                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                </div>
+
+
+                            </div>
+
+                            <div className="fotos">
+
+                                <div className="img-team">
+                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+
+                                    <p className="nome-team">Bruna </p>
+                                    <p className="nome-team">Cardozo </p>
+                                </div>
+                                <div className="icon-team">
+                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                </div>
+
+
+                            </div>
+
+                            <div className="fotos">
+
+                                <div className="img-team">
+                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+
+                                    <p className="nome-team">Eduardo  </p>
+                                    <p className="nome-team">Borges </p>
+                                </div>
+                                <div className="icon-team">
+                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                        <div className="equipe">
+                            <div className="fotos">
+
+                                <div className="img-team">
+                                    <img src="src/assets/img/luiza-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+
+                                    <p className="nome-team">Luiza  </p>
+                                    <p className="nome-team">Fischer  </p>
+                                </div>
+                                <div className="icon-team">
+                                    <a href="https://www.linkedin.com/in/luiza-fischer-302a611bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:luizafische@gmail.com"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                </div>
+
+
+                            </div>
+
+                            <div className="fotos">
+
+                                <div className="img-team">
+                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+
+                                    <p className="nome-team">Maria </p>
+                                    <p className="nome-team">Eduarda </p>
+                                </div>
+                                <div className="icon-team">
+                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                </div>
+
+
+                            </div>
+
+                            <div className="fotos">
+
+                                <div className="img-team">
+                                    <img src="src/assets/img/rafagath-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+
+                                    <p className="nome-team">Rafagath</p>
+                                    <p className="nome-team">Klug </p>
+                                </div>
+                                <div className="icon-team">
+                                    <a href="https://www.linkedin.com/in/rafagath-klug-11122a269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:rafagmk@gmail.com"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
                     <div id="contact" className="contato">
                         <div className="contact-title">
                             <p>Entre em Contato Conosco:</p>
@@ -102,18 +221,7 @@ export function Home() {
                             <BsWhatsapp /> +55 51 985836686
                         </div>
                     </div>
-                    <div id="team" className="">
-                        <div>
-                            <p>Equipe</p>
-                        </div>
-                        <img src="" width={100} height={100} alt="" />
-                        <img src="" width={100} height={100} alt="" />
-                        <img src="" width={100} height={100} alt="" />
-                        <img src="" width={100} height={100} alt="" />
-                        <img src="" width={100} height={100} alt="" />
-                        <img src="" width={100} height={100} alt="" />
 
-                    </div>
                 </main>
             </div>
             <div className="subir">
