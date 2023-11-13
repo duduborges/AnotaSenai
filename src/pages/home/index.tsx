@@ -11,7 +11,7 @@ export function Home() {
 
 
     return (
-        <div className="total">
+        <div id="home" className="total">
             <Header />
             <div className="container-home">
                 <main  >
@@ -45,13 +45,13 @@ export function Home() {
                                 independentemente da complexidade de cada projeto.</p>
                         </section>
                     </div>
-                    <div className="hub-img"> <img src="src\assets\img\Logo_anota.png"
+                    <div id="post" className="hub-img"> <img src="src\assets\img\Logo_anota.png"
                         height="200" width={200} alt="" /></div>
                     <div className="hub">
 
 
                         <Link className="link-hub" to={"/post/new"}>
-                            <button id="post" className="btn-hub">Crie seu Post-it</button>
+                            <button className="btn-hub">Crie seu Post-it</button>
 
                         </Link>
 
@@ -73,11 +73,12 @@ export function Home() {
 
                     <div className="equipe-total">
                         <div id="sla-top">
-                            <div className="title-team">
+                            <div id="team" className="title-team">
                                 <p>Equipe</p>
-
                             </div>
                         </div>
+
+
 
                         <div className="equipe">
                             <div className="fotos">
@@ -99,14 +100,14 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+                                    <img src="src/assets/img/bruna-foto.jpg" className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Bruna </p>
                                     <p className="nome-team">Cardozo </p>
                                 </div>
                                 <div className="icon-team">
-                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
-                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                    <a href="https://www.linkedin.com/in/brunahcardozo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:brunahcardozo11@gmail.com"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
                                 </div>
 
 
@@ -151,14 +152,14 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+                                    <img src="src/assets/img/duda-foto.jpg" className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Maria </p>
                                     <p className="nome-team">Eduarda </p>
                                 </div>
                                 <div className="icon-team">
-                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
-                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                    <a href="https://www.linkedin.com/in/maria-eduarda-c?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:m.eduardacarrico@gmail.com"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
                                 </div>
 
 
@@ -188,44 +189,77 @@ export function Home() {
 
                     </div>
                     <div id="contact" className="contato">
-                        <div className="contact-title">
-                            <p>Entre em Contato Conosco:</p>
+                        <div className="contact-all">
+
+
+                            <div className="contact-title">
+                                <p>Entre em Contato Conosco:</p>
+                            </div>
+                            <div id="triangulo-para-direita"></div>
                         </div>
                         <div>
-                            <form action="https://formsubmit.co/duduborges333969@gmial.com" method="POST">
-                                <div >
+                            <form className="form-contact" action="https://formsubmit.co/duduborges333969@gmail.com" method="POST">
+                                <div id="inputs-div">
                                     <div>
-                                        <input type="text" name="nome" id="w3lName" placeholder="Seu Nome"
+                                        <input type="text" name="nome" className="inputs1-contat" id="w3lName" placeholder="Digite seu Nome:"
                                             required />
                                     </div>
                                     <div>
-                                        <input type="email" name="Email" id="w3lSender" placeholder="Seu Email"
-                                            required />
-                                    </div>
+                                        <input type="email" className="inputs1-contat" name="Email" id="w3lSender" placeholder="Digite seu Email:"
+                                            required /></div>
 
 
                                     <div>
                                         <input type="hidden" name="_captcha" value="false" />
+
+                                        <textarea className="textarea-contact" name="Mensagem" id="w3lMessage"
+                                            placeholder="Escreva aqui sua mensagem" required></textarea>
                                     </div>
                                 </div>
-                                <textarea name="Mensagem" id="w3lMessage"
-                                    placeholder="Escreva aqui sua mensagem" required></textarea>
-                                <div >
-                                    <button  >Enviar</button>
+                                <div id="icons-contact">
+                                    <div id="email-form-icon">
+                                        <div id="icon-form-email">
+                                            <div>
+                                                <SiGmail size={50} color={"#FAF6F6"} />
+                                            </div>
+                                            <div>
+                                                <p id="info-contact"> Envie-nos um email manualmente:</p>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <p >duduborges333969@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div id="email-form-icon">
+                                            <div id="icon-form-email">
+                                                <div>
+                                                    <BsWhatsapp size={50} color={"#FAF6F6"} />
+                                                </div>
+                                                <div>
+                                                    <p id="info-contact"> Ou contate-nos pelo WhatsApp:</p>
+
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <p >(51) 985836686 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button  >Enviar email</button>
                                 </div>
 
                             </form>
                         </div>
-                        <div>
-                            <SiGmail /> Duduborges333969@gmail.com
-                            <BsWhatsapp /> +55 51 985836686
-                        </div>
+
                     </div>
 
-                </main>
-            </div>
+                </main >
+            </div >
             <div className="subir">
-                <a href=""><AiOutlineArrowUp color={"#FFFFFF"} size={30} /></a>
+                <a href="#home"><AiOutlineArrowUp color={"#FFFFFF"} size={30} /></a>
             </div>
             <footer>
                 <p>©EduardoBorges</p>
@@ -236,7 +270,7 @@ export function Home() {
 
 
             </footer>
-            {/* faz uma pagina home legal, q explica o que é cada coisa e tal e com cores maneiras  */}
+
 
 
         </div >

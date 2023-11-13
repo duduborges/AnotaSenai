@@ -139,8 +139,11 @@ h2 {
     scroll-behavior: smooth;
 }
 
+/* #home {
+    margin-top: 5rem;
+} */
+
 .navbar {
-    position: sticky;
 
     padding: 0 1rem;
     box-shadow: 1px 1px 100px 1px rgba(0, 0, 0, 0.288);
@@ -483,10 +486,11 @@ main {
 }
 
 .equipe {
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 4rem 0;
+    padding: 6rem 0;
 
 }
 
@@ -518,19 +522,19 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-radius: 50px;
+    border-radius: 70px;
 
 
-    font-size: 45px;
+    font-size: 70px;
     color: #FFFFFF;
 
 
     font-family: 'Luckiest Guy', cursive;
-    width: 40rem;
-    height: 6.5rem;
+    width: 65rem;
+    height: 8rem;
     background-color: #F2889B;
     text-align: center;
-    margin: 0rem auto 4rem auto;
+    margin: 6rem auto;
 }
 
 .icon-team {
@@ -559,16 +563,161 @@ main {
 
 .contact-title {
     background-color: #F29E38;
-    width: 40rem;
-    height: 5rem;
-    border-top-right-radius: 70%;
+    width: 50%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #FFFFFF;
+    font-family: 'Luckiest Guy', cursive;
+
+}
+
+#triangulo-para-direita {
+    width: 0;
+    height: 0;
+    border-top: 3rem solid transparent;
+    border-bottom: 3rem solid transparent;
+    border-left: 3rem solid #F29E38;
 }
 
 #sla-top {
+    display: flex;
+    margin: auto auto;
     width: 100%;
-    position: absolute;
-    height: 10rem;
+    height: 12rem;
+
+    border-top-right-radius: 2%;
+    border-top-left-radius: 2%;
+
     border-bottom-left-radius: 70%;
     border-bottom-right-radius: 70%;
     background-color: #FFF8EE;
+}
+
+
+
+
+
+.contact-all {
+    display: flex;
+    flex-direction: row;
+}
+
+.contato {
+    background-color: #EBE7E7;
+    padding-bottom: 3rem;
+}
+
+.inputs1-contat {
+    background-color: #95BFA4;
+    color: #FFF8EE;
+    font-size: 28px;
+    border-radius: 20px;
+    width: 40rem;
+    height: 4rem;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 1rem;
+    padding-top: 0.1rem;
+    border: 0.1rem solid #769781;
+
+    margin: 0.2rem 0;
+}
+
+
+
+#inputs-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-contact {
+    margin: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#icons-contact {
+    margin: auto 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    font-size: 23px;
+    color: #FFF8EE;
+    font-family: 'Open Sans', sans-serif;
+    border: 0.1rem solid #769781;
+
+    flex-direction: column;
+    background-color: #95BFA4;
+    border-radius: 20px;
+    height: 20rem;
+    width: 40rem;
+}
+
+#icons-contact button {
+    height: 4rem;
+    width: 70%;
+    border: 0;
+    border-radius: 20px;
+    background-color: #FFF8EE;
+    color: #95BFA4;
+    font-size: 20px;
+    margin: 0.8rem 0;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+#email-form-icon {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+
+}
+
+
+
+#icon-form-email {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#info-contact {
+    font-size: 24px;
+    color: #FFFFFF;
+    font-family: 'Luckiest Guy', cursive;
+
+}
+
+#icon-form-email div {
+    margin: 0 0.5rem;
+}
+
+.textarea-contact {
+    background-color: #95BFA4;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF8EE;
+    font-size: 28px;
+    border: 0.1rem solid #769781;
+    border-radius: 20px;
+    width: 40rem;
+    padding-left: 1rem;
+    padding-top: 0.9rem;
+    resize: none;
+    height: 15rem;
+}
+
+.textarea-contact::placeholder {
+    color: #FFF8EE;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.inputs1-contat::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF8EE;
 }
