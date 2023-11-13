@@ -423,7 +423,7 @@ main {
     color: #FFFFFF;
     background-color: #F28444;
     height: 6.5rem;
-    width: 35%;
+    width: 45%;
 }
 
 .hub-img {
@@ -640,7 +640,7 @@ main {
 }
 
 #icons-contact {
-    margin: auto 0;
+    margin: auto 1rem;
     align-items: center;
     justify-content: center;
     display: flex;
