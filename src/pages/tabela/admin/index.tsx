@@ -145,6 +145,7 @@ export function Admin() {
         // })
     }
 
+
     function handleRegister() {
         setNomeInput('')
         setDescInput('')
@@ -283,7 +284,7 @@ export function Admin() {
 
             <br />
             <hr />
-            <h2 id="gerenciar">Gerenciar meus Post-its</h2>
+            <p id="gerenciar">Gerenciar meus Post-its</p>
 
             <div className="map-postit">
 

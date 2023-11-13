@@ -4,6 +4,9 @@ import { useState, useEffect, useContext } from "react"
 import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { AuthContext } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
+import { BsFillGearFill } from "react-icons/bs"
 
 
 interface AnotProps {
@@ -54,7 +57,29 @@ export function Tabela() {
     return (
 
         <div>
-            <Header />
+            <header className="header-table">
+                <div>
+
+                    <Link to="/"><BiArrowBack color="black" size={40} /></Link>
+                </div>
+                <Link to="/post/new">
+                    <div id="div-header">
+                        <div>
+                            <p>Gerenciar </p>
+                        </div>
+                        <BsFillGearFill color="black" size={40} />
+                    </div>
+                </Link>
+            </header>
+
+            <div className="title-post-criados">
+                <p id="post-it">
+                    Post-it
+                </p>
+                <p id="criados">
+                    Criados
+                </p>
+            </div>
             <div className="map-postit">
                 {anot.map((anot) => (
 

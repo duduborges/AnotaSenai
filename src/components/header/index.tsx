@@ -31,7 +31,7 @@ export function Header() {
                     <a href="#contact"><p>Contato</p></a>
                     <Link to={"/help"}>Ajuda</Link>
 
-                    <Link to={"/post"}>Meus links</Link>
+                    <Link to={"/post"}>Minhas anotações</Link>
 
 
                     {!loadingAuth && signed && (
