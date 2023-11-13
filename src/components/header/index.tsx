@@ -4,10 +4,7 @@ import { Link } from "react-router-dom"
 import { } from "../../assets/css/index.css"
 import { signOut } from "firebase/auth"
 import { auth } from "../../services/firebaseConnection"
-import { BiLogIn } from "react-icons/bi"
-import { AiOutlineUser } from "react-icons/ai"
-import { Navigate } from "react-router-dom"
-import { ImPencil2 } from "react-icons/im"
+
 
 
 
@@ -25,15 +22,16 @@ export function Header() {
         <header >
             <nav>
                 <div className="navbar">
-                    <div><ImPencil2 size={30} color={"#95BFA4"} /></div>
+                    <div><img height={40} width={90} src="src/assets/img/banner_anota.png" alt="" /></div>
 
                     <a href="#inicio"><p>Início</p></a>
 
                     <a href="#post"><p>Post-it</p></a>
                     <a href="#team"><p>Equipe</p></a>
                     <a href="#contact"><p>Contato</p></a>
-                    <a href="#fav"><p>Favorito</p></a>
-                    <a href="#help"><p>Ajuda</p></a>
+                    <Link to={"/help"}>Ajuda</Link>
+
+                    <Link to={"/post"}>Meus links</Link>
 
 
                     {!loadingAuth && signed && (
@@ -57,6 +55,6 @@ export function Header() {
 
                 </div>
             </nav>
-        </header>
+        </header >
     )
 }

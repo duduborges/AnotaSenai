@@ -1,7 +1,9 @@
 import { Header } from "../../../components/header"
 import { FormEvent, useState, useEffect, useContext } from "react"
 import { BsFillTrash3Fill } from 'react-icons/bs'
+import { PiBroomBold } from "react-icons/pi"
 import { } from "../../../assets/css/index.css"
+import { BiArrowBack } from "react-icons/bi"
 import {
     addDoc, collection, onSnapshot,
     query, orderBy, doc, deleteDoc, where, getDocs,
@@ -11,8 +13,9 @@ import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { BsPencil } from 'react-icons/bs'
-import { Input } from "../../../components/input"
+import { Input, TxtArea } from "../../../components/input"
 import { AuthContext } from "../../../contexts/AuthContext"
+import { Link } from "react-router-dom"
 
 
 
@@ -125,7 +128,12 @@ export function Admin() {
     //     setColorTextInput("")
     // }
 
-
+    function clear() {
+        setNomeInput('')
+        setDescInput('')
+        setColorBackgroundInput('#000000')
+        setColorTextInput('#FFFFFF')
+    }
     function handleEdit(nome: string, color: string, descricao: string, bg: string) {
         setNomeInput(nome)
         setDescInput(descricao)
@@ -152,62 +160,100 @@ export function Admin() {
     }
 
     return (
-        <div><h1>Admin do neckles</h1>
+        <div >
+            <Link to="/"><BiArrowBack color="black" size={40} /></Link>
+            <div className="title-cadastrar-post">
+                <p >
+                    Crie seu Post-it
+                </p>
+            </div>
 
-            <Header />
-            <form onSubmit={handleSubmit(onSubmit)} >
-                <div className="cadastrar">
-                    <label >Titulo da anotação</label>
-                    <Input
-                        autoComplete="off"
-                        className="input-cadastrar"
-                        value={nomeInput}
-                        type="text"
-                        register={register}
-                        onChange={(e) => setNomeInput(e.target.value)}
-                        name="nome"
-                        error={errors.nome?.message}
-                        placeholder="Digite o titulo da anotação..."
-                    />
-                    <label >Descrição da anotação</label>
-                    <Input
-                        className="input-cadastrar"
-                        autoComplete="off"
-                        type="text"
-                        value={descInput}
-                        register={register}
-                        onChange={(e) => setDescInput(e.target.value)}
-                        name="descricao"
-                        error={errors.descricao?.message}
-                        placeholder="Digite o titulo da descrição..."
-                    />
-                    <div className="cores">
-                        <Input
-                            className="input-colors"
-                            type="color"
-                            value={colorTextInput}
-                            defaultValue={"#FFFFFF"}
-                            register={register}
-                            onChange={(e) => setColorTextInput(e.target.value)}
-                            name="color"
-                            error={errors.color?.message}
-                            placeholder=""
-                        />
-                        <label >⬅️Escolha uma cor para o texto</label>
-                        <label>Escolha uma cor para o fundo➡️</label>
-                        <Input
-                            className="input-colors"
-                            value={colorBackgroundInput}
-                            type="color"
-                            register={register}
-                            onChange={(e) => setColorBackgroundInput(e.target.value)}
-                            name="bg"
-                            defaultValue={"#000000"}
-                            error={errors.bg?.message}
-                            placeholder=""
-                        />
+            <form className="form-post" onSubmit={handleSubmit(onSubmit)} >
 
+                <div className="inputs-infos">
+                    <div className="inputs-infoss">
+                        <label className="label-input-info" >Título</label>
+                        <Input
+                            autoComplete="off"
+                            className="input-name"
+                            value={nomeInput}
+                            type="text"
+                            register={register}
+                            onChange={(e) => setNomeInput(e.target.value)}
+                            name="nome"
+                            error={errors.nome?.message}
+                            placeholder="Digite o titulo da anotação..."
+                        />
+                        <label className="label-input-info" >Descrição </label>
+                        <TxtArea
+                            className="input-desc"
+                            autoComplete="off"
+
+                            value={descInput}
+                            register={register}
+                            onChange={(e) => setDescInput(e.target.value)}
+                            name="descricao"
+                            error={errors.descricao?.message}
+                            placeholder="Digite o titulo da descrição..."
+                        />
                     </div>
+                    <div className=".inputs-infoss">
+                        <div className="cores-div">
+                            <p className="label-input-info">Personalize</p>
+                            <div className="cores-inputs">
+                                <p>
+                                    Cor do Texto:
+                                </p>
+                                <Input
+                                    className="color-box"
+                                    type="color"
+                                    value={colorTextInput}
+                                    defaultValue={"#FFFFFF"}
+                                    register={register}
+                                    onChange={(e) => setColorTextInput(e.target.value)}
+                                    name="color"
+                                    error={errors.color?.message}
+                                    placeholder=""
+                                />
+                            </div>
+
+                            <div className="cores-inputs">
+                                <p >
+                                    Cor do Fundo:
+                                </p>
+                                <Input
+                                    className="color-box"
+                                    value={colorBackgroundInput}
+                                    type="color"
+                                    register={register}
+                                    onChange={(e) => setColorBackgroundInput(e.target.value)}
+                                    name="bg"
+                                    defaultValue={"#000000"}
+                                    error={errors.bg?.message}
+                                    placeholder=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div className="cores">
+                    {nomeInput === "" && (
+                        <div className="previatotal">
+                            <h1>Veja como esta ficando:</h1>
+                            <article className="previa"
+                                style={{ backgroundColor: colorBackgroundInput }}
+                            >
+                                <p style={{ color: colorTextInput }}> {nomeInput}</p>
+
+                            </article>
+                            <button className="clear" onClick={clear}><PiBroomBold size={30} color={"F2889B"} /> Limpar</button>
+
+                        </div>
+                    )}
                     {nomeInput !== "" && (
                         <div className="previatotal">
                             <h1>Veja como esta ficando:</h1>
@@ -217,11 +263,24 @@ export function Admin() {
                                 <p style={{ color: colorTextInput }}> {nomeInput}</p>
 
                             </article>
+                            <button className="clear" onClick={clear}><PiBroomBold size={30} color={"F2889B"} /> Limpar</button>
+
                         </div>
                     )}
-                    <button className="btn-cadastrar" onClick={handleRegister} type="submit">Anotar </button>
+                    <div className="div-btn-cadastrar">
+
+                        <button className="btn-cadastrar" onClick={handleRegister} type="submit">Anotar </button>
+                    </div>
+
+
                 </div>
-            </form>
+
+
+
+
+
+            </form >
+
             <br />
             <hr />
             <h2 id="gerenciar">Gerenciar meus Post-its</h2>

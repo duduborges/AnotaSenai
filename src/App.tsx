@@ -4,7 +4,6 @@ import { Admin } from './pages/tabela/admin'
 import { Login } from './pages/login'
 import { Tabela } from "./pages/tabela"
 import { Register } from "./pages/cadastro"
-import { Favorito } from "./pages/tabela/favoritos"
 
 
 import { Private } from "./routes/Private"
@@ -32,10 +31,10 @@ const router = createBrowserRouter([
     path: '/post',
     element: <Private><Tabela /></Private>
   },
-  {
-    path: "/post/fav",
-    element: <Private><Favorito /></Private>
-  }
+  // {
+  //   path: "/help",
+  //   element: <Ajuda />
+  // }
 ])
 
 export { router }

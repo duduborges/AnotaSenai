@@ -25,50 +25,19 @@ body {
     background-color: #FFF8EE;
 }
 
-.cadastrar {
-    margin-bottom: 3rem;
-    font-family: 'Satisfy', cursive;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    border: 1px solid;
-    display: flex;
-    margin-top: 5.5rem;
-    width: 70rem;
 
-    height: fit-content;
-    flex-direction: column;
-    padding: 5rem;
-}
 
 .cadastrar label {
     font-size: 40px;
 }
 
-.cores {
-    display: flex;
-    margin-top: 2rem;
-    flex-direction: row;
-}
 
-.cores label {
-    margin: 0 2rem;
-}
 
 h2 {
     text-align: center;
 }
 
-.btn-cadastrar {
-    background-color: rgb(65, 65, 224);
-    width: 20rem;
-    height: 3rem;
-    margin-top: 2rem;
-    border-radius: 15px;
-    border: 0;
-    font-family: 'Handlee', cursive;
-    font-size: xx-large;
-}
+
 
 .final {
     border-radius: 5px;
@@ -117,21 +86,32 @@ h2 {
 }
 
 .previatotal {
+    width: fit-content;
+    padding: 2rem 6rem;
+    border-radius: 20px;
+    background-color: #95bfa479;
     display: flex;
+
     flex-direction: column;
-    margin: auto;
+    margin: 0 auto 2rem auto;
     font-family: 'Handlee', cursive;
     align-items: center;
 }
 
+.previatotal h1 {
+    font-family: 'Luckiest Guy', cursive;
+    color: #4D4D4D;
+}
+
 
 .subir {
-    width: fit-content +5px;
+    width: fit-content;
     position: fixed;
     border: 1px #779782 solid;
     bottom: 0;
     margin: 1rem;
     border-radius: 4px;
+    padding: 0 0.1rem;
     right: 0;
     box-shadow: 1px 1px 20px 1px white;
     background-color: #95BFA4;
@@ -142,6 +122,18 @@ h2 {
 /* #home {
     margin-top: 5rem;
 } */
+footer {
+    background-color: #000000;
+    color: white;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: large;
+    font-weight: 300;
+}
 
 .navbar {
 
@@ -170,7 +162,7 @@ h2 {
 }
 
 .title-home p {
-    font-size: 60px;
+    font-size: 3.8rem;
     margin: 0 0.3rem;
     font-family: 'Luckiest Guy', cursive;
 }
@@ -204,8 +196,8 @@ h2 {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../img/wave-orange.png");
-    height: 34rem;
-    font-size: 30px;
+    height: 33rem;
+    font-size: 1.8rem;
 
 }
 
@@ -222,13 +214,13 @@ h2 {
 }
 
 .about li {
-    font-size: 23px;
+    font-size: 1.8rem;
     font-weight: bold
 }
 
 .about p {
     margin-bottom: 0.5rem;
-    font-size: 17px;
+    font-size: 1.1rem;
 }
 
 .about section {
@@ -239,7 +231,7 @@ h2 {
     background-color: #F29E38;
     margin: 0;
     font-family: 'Luckiest Guy', cursive;
-    font-size: 40px;
+    font-size: 2.8rem;
 }
 
 #in-out {
@@ -250,11 +242,12 @@ h2 {
     background-color: #F29E38;
 }
 
-.navbar p {
+.navbar p,
+a {
     font-family: 'Noto Sans Samaritan', sans-serif;
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 2rem;
     margin: 0 1rem;
 
 }
@@ -304,12 +297,7 @@ h2 {
     width: 100%;
 }
 
-.input-colors {
-    height: 3rem;
-    border: 2px dotted grey;
-    margin: auto;
 
-}
 
 main {
 
@@ -317,13 +305,7 @@ main {
     text-align: center;
 }
 
-.input-cadastrar {
-    width: 50rem;
-    height: 2.5rem;
-    border-radius: 10px;
-    border: 0;
-    margin: 0.2rem;
-}
+
 
 .link-cad {
     margin: 1rem 0;
@@ -415,7 +397,7 @@ main {
 .btn-hub {
     border-radius: 50px;
     border: white solid 6px;
-    font-size: 40px;
+    font-size: 2.5rem;
     text-align: center;
 
 
@@ -435,7 +417,7 @@ main {
 }
 
 .sub-hub {
-    font-size: 17px;
+    font-size: 1.2rem;
     font-family: 'Open Sans', sans-serif;
     margin-top: 0.5rem;
     margin-bottom: 8rem;
@@ -525,13 +507,13 @@ main {
     border-radius: 70px;
 
 
-    font-size: 70px;
+    font-size: 4.5rem;
     color: #FFFFFF;
 
 
     font-family: 'Luckiest Guy', cursive;
-    width: 65rem;
-    height: 8rem;
+    width: 55rem;
+    height: 6.8rem;
     background-color: #F2889B;
     text-align: center;
     margin: 6rem auto;
@@ -568,7 +550,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    padding: 0 0.2rem;
+    font-size: 2.8rem;
     color: #FFFFFF;
     font-family: 'Luckiest Guy', cursive;
 
@@ -613,7 +596,7 @@ main {
 .inputs1-contat {
     background-color: #95BFA4;
     color: #FFF8EE;
-    font-size: 28px;
+    font-size: 1.8rem;
     border-radius: 20px;
     width: 40rem;
     height: 4rem;
@@ -645,7 +628,7 @@ main {
     justify-content: center;
     display: flex;
     text-align: center;
-    font-size: 23px;
+    font-size: 1.3rem;
     color: #FFF8EE;
     font-family: 'Open Sans', sans-serif;
     border: 0.1rem solid #769781;
@@ -664,7 +647,7 @@ main {
     border-radius: 20px;
     background-color: #FFF8EE;
     color: #95BFA4;
-    font-size: 20px;
+    font-size: 1.7rem;
     margin: 0.8rem 0;
     font-family: 'Open Sans', sans-serif;
 
@@ -687,7 +670,7 @@ main {
 }
 
 #info-contact {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #FFFFFF;
     font-family: 'Luckiest Guy', cursive;
 
@@ -701,7 +684,7 @@ main {
     background-color: #95BFA4;
     font-family: 'Open Sans', sans-serif;
     color: #FFF8EE;
-    font-size: 28px;
+    font-size: 1.8rem;
     border: 0.1rem solid #769781;
     border-radius: 20px;
     width: 40rem;
@@ -720,4 +703,169 @@ main {
 .inputs1-contat::placeholder {
     font-family: 'Open Sans', sans-serif;
     color: #FFF8EE;
+}
+
+
+.title-cadastrar-post {
+    background-color: #F29E38;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65%;
+    border-radius: 5px;
+    margin: 0 auto 1rem auto;
+    font-family: 'Luckiest Guy', cursive;
+    color: #FAF6F6;
+    height: 7rem;
+}
+
+.form-post {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.inputs-infos {
+
+    width: 40%;
+    padding: 2% 2%;
+    border-radius: 15px;
+}
+
+.inputs-infoss {
+    background-color: #95BFA4;
+    margin: 1rem;
+    width: 100%;
+    padding: 4% 6% 4% 4%;
+    border-radius: 15px;
+}
+
+.cores {
+    margin-top: 2.1rem;
+    width: 40%;
+
+}
+
+.input-name {
+    background-color: #FFFFFF;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF8EE;
+    font-size: xx-large;
+    height: 4.5rem;
+    padding-left: 2%;
+    border: 0.14rem #EBE7E7 solid;
+    margin: 0.3rem 0;
+    border-radius: 20px;
+
+}
+
+.input-desc {
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF8EE;
+
+    background-color: #FFFFFF;
+    width: 100%;
+    resize: none;
+    border: 0.14rem #EBE7E7 solid;
+    margin: 0.3rem 0;
+    font-size: medium;
+    height: 9rem;
+
+    border-radius: 20px;
+    padding: 2% 0;
+    padding-left: 2%;
+
+}
+
+.label-input-info {
+    width: 80%;
+    color: whitesmoke;
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin: 0 1.5%;
+}
+
+
+
+.cores-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 4% 6% 4% 4%;
+
+
+    margin: 1rem;
+
+    border: 0.14rem #EBE7E7 solid;
+
+    text-align: left;
+    height: 10rem;
+    border-radius: 20px;
+    background-color: #95BFA4;
+}
+
+.cores-inputs {
+
+    margin: 0.2rem auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+
+.color-box {
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 50%;
+    appearance: none;
+    margin: 0 0 0 2rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.color-box::-webkit-color-swatch {
+    border-radius: 50%;
+
+    border: 0.14rem #EBE7E7 solid;
+}
+
+.cores-inputs p {
+    color: #FAF6F6;
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.div-btn-cadastrar {
+    margin: auto 15%;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.btn-cadastrar {
+    font-family: 'Luckiest Guy', cursive;
+    color: #FAF6F6;
+    font-size: 4rem;
+    border-radius: 50px;
+    border: #EBE7E7 6px solid;
+    background-color: #F2889B;
+    margin: 1rem 0;
+    height: 6rem;
+    width: 70%;
+}
+
+.clear {
+    background-color: transparent;
+    border: 0;
+    margin: 1rem;
+    color: #F2889B;
+    text-align: center;
 }

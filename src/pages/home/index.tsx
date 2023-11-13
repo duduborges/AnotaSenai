@@ -15,7 +15,7 @@ export function Home() {
             <Header />
             <div className="container-home">
                 <main  >
-                    <img src="\src\assets\img\banner anota.png" width="400" height="200" alt="" />
+                    <img src="\src\assets\img\banner_anota.png" width="400" height="200" alt="" />
                     <div className="title-home">
                         <p id="pt1-title">Bem Vindo ao </p>
                         <p id="pt2-title"> Anota Senai</p>
@@ -263,9 +263,12 @@ export function Home() {
             </div>
             <footer>
                 <p>©EduardoBorges</p>
-                <a href="https://github.com/duduborges"><AiFillGithub size={40} /></a>
-                <a href="https://www.instagram.com/borges.ip/"><AiOutlineInstagram color={"#bf0dcf"} size={40} /></a>
-                <a href="https://www.linkedin.com/in/eduardo-borges-cambraia-809225269/"> <AiOutlineLinkedin color={"#0b65cc"} size={40} /></a>
+                <div>
+                    <a href="https://github.com/duduborges"><AiFillGithub color={"#FFFFFF"} size={40} /></a>
+                    <a href="https://www.instagram.com/borges.ip/"><AiOutlineInstagram color={"#bf0dcf"} size={40} /></a>
+                    <a href="https://www.linkedin.com/in/eduardo-borges-cambraia-809225269/"> <AiOutlineLinkedin color={"#0b65cc"} size={40} /></a>
+
+                </div>
 
 
 
