@@ -128,7 +128,7 @@ h2 {
     bottom: 0;
     margin: 1rem;
     border-radius: 4px;
-    padding: 0 0.1rem;
+    padding:  0.01rem;
     right: 0;
     box-shadow: 1px 1px 20px 1px white;
     background-color: #95BFA4;
@@ -154,7 +154,7 @@ footer {
 
 .navbar {
 
-    padding: 0 1rem;
+   
     box-shadow: 1px 1px 100px 1px rgba(0, 0, 0, 0.288);
     color: #FFFFFF;
     background-color: #F2889B;
@@ -168,7 +168,7 @@ footer {
 }
 
 .navbar div {
-    padding: 1rem;
+    padding: 0.8rem;
 
 }
 
@@ -253,7 +253,7 @@ footer {
 
 #in-out {
     cursor: pointer;
-
+    padding: 1.1rem;
     height: 100%;
 
     background-color: #F29E38;
@@ -264,7 +264,7 @@ a {
     font-family: 'Noto Sans Samaritan', sans-serif;
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin: 0 1rem;
 
 }
@@ -771,7 +771,7 @@ main {
     background-color: #FFFFFF;
     width: 100%;
     font-family: 'Open Sans', sans-serif;
-    color: #FFF8EE;
+    color: #000000;
     font-size: xx-large;
     height: 4.5rem;
     padding-left: 2%;
@@ -783,7 +783,7 @@ main {
 
 .input-desc {
     font-family: 'Open Sans', sans-serif;
-    color: #FFF8EE;
+    color: #000000;
 
     background-color: #FFFFFF;
     width: 100%;
