@@ -6,7 +6,7 @@ import { } from "../../../assets/css/index.css"
 import { BiArrowBack } from "react-icons/bi"
 import {
     addDoc, collection, onSnapshot,
-    query, orderBy, doc, deleteDoc, where, getDocs,
+    query, orderBy, doc, deleteDoc, where, getDocs, updateDoc,
 } from "firebase/firestore"
 import { db } from "../../../services/firebaseConnection"
 import { z } from "zod"
@@ -48,14 +48,17 @@ export function Admin() {
     const [descInput, setDescInput] = useState("")
     const [colorBackgroundInput, setColorBackgroundInput] = useState("#000000")
     const [colorTextInput, setColorTextInput] = useState("#FFFFFF")
+    const collectionRef = collection(db, "Post-it");
     const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
         resolver: zodResolver(schema),
         mode: "onChange"
     })
-
     const [editAnot, setEditAnot] = useState({
         enabled: false,
-        anot: ''
+        nome: '',
+        descricao: '',
+        bg: '',
+        color: '',
     })
     function onSubmit(data: FormData) {
         addDoc(collection(db, "Post-it"), {
@@ -111,38 +114,14 @@ export function Admin() {
         loadingAnots();
     }, [user])
 
-    // function handleSaveEdit() {
-    //     const findIndexAnot = anots.findIndex(anot => anot === editAnot.anot)
-    //     const allAnots = [...anots]
 
-    //     allAnots[findIndexAnot] = nomeInput && descInput && colorBackgroundInput && colorTextInput
-    //     setAnots(allAnots)
 
-    //     setEditAnot({
-    //         enabled: false,
-    //         anot: ''
-    //     })
-    //     setNomeInput("")
-    //     setDescInput("")
-    //     setColorBackgroundInput("")
-    //     setColorTextInput("")
-    // }
 
     function clear() {
         setNomeInput('')
         setDescInput('')
         setColorBackgroundInput('#000000')
         setColorTextInput('#FFFFFF')
-    }
-    function handleEdit(nome: string, color: string, descricao: string, bg: string) {
-        setNomeInput(nome)
-        setDescInput(descricao)
-        setColorBackgroundInput(bg)
-        setColorTextInput(color)
-        // setEditAnot({
-        //     enabled: true,
-        //     anot: nome
-        // })
     }
 
 
@@ -152,8 +131,47 @@ export function Admin() {
         setColorBackgroundInput('#000000')
         setColorTextInput('#FFFFFF')
         console.log("cadastrado com sucesso")
+        if (editAnot.enabled) {
+            handleUpdate();
+            return;
+        }
 
+    }
 
+    function handleEdit(nome: string, color: string, descricao: string, bg: string) {
+        setEditAnot({
+            enabled: true,
+            nome: nome,
+            descricao: descricao,
+            bg: bg,
+            color: color,
+        })
+        setNomeInput(nome)
+        setDescInput(descricao)
+        setColorBackgroundInput(bg)
+        setColorTextInput(color)
+    }
+
+    function handleUpdate() {
+        const data = {
+            nome: nomeInput,
+            descricao: descInput,
+            bg: colorBackgroundInput,
+            color: colorTextInput,
+        }
+        const docRef = doc(collectionRef, "Post-it");
+        updateDoc(docRef, data);
+        setEditAnot({
+            enabled: false,
+            nome: '',
+            descricao: '',
+            bg: '',
+            color: '',
+        })
+        setNomeInput('')
+        setDescInput('')
+        setColorBackgroundInput('#000000')
+        setColorTextInput('#FFFFFF')
     }
     async function handleDeleteAnotacao(id: string) {
         const docRef = doc(db, "Post-it", id)
@@ -209,7 +227,7 @@ export function Admin() {
                                     className="color-box"
                                     type="color"
                                     value={colorTextInput}
-                                    defaultValue={"#FFFFFF"}
+
                                     register={register}
                                     onChange={(e) => setColorTextInput(e.target.value)}
                                     name="color"
@@ -224,7 +242,7 @@ export function Admin() {
                                 </p>
                                 <Input
                                     className="color-box"
-                                    value={colorBackgroundInput}
+
                                     type="color"
                                     register={register}
                                     onChange={(e) => setColorBackgroundInput(e.target.value)}
@@ -264,13 +282,15 @@ export function Admin() {
                                 <p style={{ color: colorTextInput }}> {nomeInput}</p>
 
                             </article>
-                            <button className="clear" onClick={clear}><PiBroomBold size={30} color={"F2889B"} /> Limpar</button>
+                            <button className="clear" onClick={clear}><PiBroomBold size={30} color={"F2889B"} />
+                                Limpar
+                            </button>
 
                         </div>
                     )}
                     <div className="div-btn-cadastrar">
 
-                        <button className="btn-cadastrar" onClick={handleRegister} type="submit">Anotar </button>
+                        <button className="btn-cadastrar" onClick={handleRegister} type="submit">{editAnot.enabled ? "Atualizar tarefa" : "Adicionar tarefa"} </button>
                     </div>
 
 
@@ -296,7 +316,7 @@ export function Admin() {
                         }}>
                         <p>{anot.nome}</p>
                         <div>
-                            <button className="icon-ger" onClick={() => handleEdit(anot.nome, anot.color, anot.descricao, anot.bg,)} >
+                            <button className="icon-ger" onClick={() => handleEdit(anot.nome, anot.color, anot.descricao, anot.bg)} >
                                 <BsPencil size={30} color="#FAC935" />
                             </button>
                             <button className="icon-ger" onClick={() => handleDeleteAnotacao(anot.id)} >
