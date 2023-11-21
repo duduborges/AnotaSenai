@@ -116,14 +116,14 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+                                    <img src="src/assets/img/borges-foto.jpg" className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Eduardo  </p>
                                     <p className="nome-team">Borges </p>
                                 </div>
                                 <div className="icon-team">
-                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
-                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                    <a href="https://www.linkedin.com/in/eduardo-borges-cambraia-809225269/"><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:duduborges333969@gmail.com"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
                                 </div>
 
 

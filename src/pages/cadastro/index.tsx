@@ -55,44 +55,50 @@ export function Register() {
 
 
     return (
-        <div className="login">
-            <img className="logo" src="src\assets\img\logo.png" />
-            <h1>Cadastro</h1>
+        <div className="cad-total">
+            <div className="top-cad">
 
-            <form onSubmit={handleSubmit(onSubmit)} >
-                <div className="inputs">
-                    <Input
-                        type="text"
-                        className="input"
-                        placeholder="Digite seu nome..."
-                        name="name"
-                        error={errors.name?.message}
-                        register={register}
-                    />
-                    <Input
-                        type="email"
-                        placeholder="Digite seu email..."
-                        name="email"
-                        className="input"
-                        error={errors.email?.message}
-                        register={register}
-                    />
-                    <Input
-                        type="password"
-                        placeholder="*******"
-                        name="password"
-                        className="input"
-                        error={errors.password?.message}
-                        register={register}
-                    />
-                </div>
-                <button className="entrar">Cadastrar</button>
+                <img className="logo" src="src\assets\img\Logo_anota.png" />
+            </div>
+            <hr className="hr-login" />
+            <h1>Cadastre-se</h1>
+            <div className="cad-center">
 
-            </form>
-            <Link className="link-cad" to="/login">
-                Já possui uma conta? Faça o login!
-            </Link>
-            {/* aqui a gente so deixa os inputs mais bonitinhos e deixa centralizado, tenta usar um template "padrão" tipo, com a msm paleta de cores no site todo  */}
+                <form onSubmit={handleSubmit(onSubmit)} >
+                    <div className="inputs-login">
+                        <Input
+                            type="text"
+                            className="input-login"
+                            placeholder="Digite seu nome..."
+                            name="name"
+                            error={errors.name?.message}
+                            register={register}
+                        />
+                        <Input
+                            type="email"
+                            placeholder="Digite seu email..."
+                            name="email"
+                            className="input-login"
+                            error={errors.email?.message}
+                            register={register}
+                        />
+                        <Input
+                            type="password"
+                            placeholder="*******"
+                            name="password"
+                            className="input-login"
+                            error={errors.password?.message}
+                            register={register}
+                        />
+                    </div>
+                    <button className="entrar">Cadastrar</button>
+
+                </form>
+                <Link className="link-cad" to="/login">
+                    Já possui uma conta? Faça o login!
+                </Link>
+                {/* aqui a gente so deixa os inputs mais bonitinhos e deixa centralizado, tenta usar um template "padrão" tipo, com a msm paleta de cores no site todo  */}
+            </div>
         </div>
     )
 
