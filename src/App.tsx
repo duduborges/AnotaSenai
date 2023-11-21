@@ -7,6 +7,7 @@ import { Register } from "./pages/cadastro"
 
 
 import { Private } from "./routes/Private"
+import { Ajuda } from "./pages/help"
 
 
 const router = createBrowserRouter([
@@ -31,10 +32,10 @@ const router = createBrowserRouter([
     path: '/post',
     element: <Private><Tabela /></Private>
   },
-  // {
-  //   path: "/help",
-  //   element: <Ajuda />
-  // }
+  {
+    path: "/help",
+    element: <Ajuda />
+  }
 ])
 
 export { router }
