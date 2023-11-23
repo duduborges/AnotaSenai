@@ -47,9 +47,11 @@ export function Tabela() {
                     })
 
                     setAnots(lista)
+                    return
                 })
         }
         loadingAnots()
+        return
     }, [user])
 
 
