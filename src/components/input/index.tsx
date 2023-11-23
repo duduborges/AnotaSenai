@@ -1,4 +1,4 @@
-import { ControllerFieldState, RegisterOptions, UseFormRegister } from "react-hook-form"
+import { RegisterOptions, UseFormRegister } from "react-hook-form"
 import { } from "../../assets/css/index.css"
 interface InputProps {
     type: string

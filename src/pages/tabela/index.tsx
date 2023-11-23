@@ -1,7 +1,6 @@
-import { Header } from "../../components/header";
 import { } from "../../assets/css/index.css"
 import { useState, useEffect, useContext } from "react"
-import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
+import { collection, query, getDocs, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
