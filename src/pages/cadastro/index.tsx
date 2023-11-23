@@ -8,7 +8,7 @@ import { auth } from "../../services/firebaseConnection"
 import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
 import { useEffect, useContext } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
-
+import Logo_anota from "../../assets/img/Logo_anota.png"
 
 const schema = z.object({
     name: z.string().nonempty("O campo nome é obrigatório"),
@@ -57,7 +57,7 @@ export function Register() {
     return (
         <div className="cad-total">
             <div className="top-cad">
-                <img className="logo" src="../../assets/img/Logo_anota.png" />
+                <img className="logo" src={Logo_anota} />
             </div>
             <hr className="hr-login" />
             <h1>Cadastre-se</h1>

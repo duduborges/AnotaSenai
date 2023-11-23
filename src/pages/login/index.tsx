@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { auth } from "../../services/firebaseConnection"
 import { useEffect } from "react"
+import Logo_anota from "../../assets/img/Logo_anota.png"
 
 
 const schema = z.object({
@@ -48,7 +49,7 @@ export function Login() {
 
             <div className="top-login">
 
-                <img className="logo" src="src\assets\img\Logo_anota.png" />
+                <img className="logo" src={Logo_anota} />
             </div>
             <hr className="hr-login" />
             <h1>Faça Login</h1>

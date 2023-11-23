@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { } from "../../assets/css/index.css"
 import { signOut } from "firebase/auth"
 import { auth } from "../../services/firebaseConnection"
+import banner_anota from "../../assets/img/banner_anota.png"
 
 
 
@@ -22,7 +23,7 @@ export function Header() {
         <header >
             <nav>
                 <div className="navbar">
-                    <div><img height={40} width={90} src="src/assets/img/banner_anota.png" alt="" /></div>
+                    <div><img height={40} width={90} src={banner_anota} alt="" /></div>
 
                     <a href="#inicio"><p>Início</p></a>
 

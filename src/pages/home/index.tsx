@@ -5,7 +5,14 @@ import { AiOutlineArrowUp, AiFillGithub, AiOutlineInstagram, AiOutlineLinkedin }
 import { SiGmail } from "react-icons/si"
 import { Link, } from "react-router-dom"
 import { BsWhatsapp } from "react-icons/bs"
-
+import bruna_foto from "../../assets/img/bruna_foto.jpg"
+import Logo_anota from "../../assets/img/Logo_anota.png"
+import banner_anota from "../../assets/img/banner_anota.png"
+import rafagathfoto from "../../assets/img/rafagathfoto.jpg"
+import luizafoto from "../../assets/img/luizafoto.jpg"
+import dudafoto from "../../assets/img/dudafoto.jpg"
+import arthurfoto from "../../assets/img/arthurfoto.jpg"
+import borgesfoto from "../../assets/img/borgesfoto.jpg"
 export function Home() {
 
 
@@ -15,7 +22,7 @@ export function Home() {
             <Header />
             <div className="container-home">
                 <main  >
-                    <img src="\src\assets\img\banner_anota.png" width="400" height="200" alt="" />
+                    <img src={banner_anota} width="400" height="200" alt="" />
                     <div className="title-home">
                         <p id="pt1-title">Bem Vindo ao </p>
                         <p id="pt2-title"> Anota Senai</p>
@@ -45,7 +52,7 @@ export function Home() {
                                 independentemente da complexidade de cada projeto.</p>
                         </section>
                     </div>
-                    <div id="post" className="hub-img"> <img src="src\assets\img\Logo_anota.png"
+                    <div id="post" className="hub-img"> <img src={Logo_anota}
                         height="200" width={200} alt="" /></div>
                     <div className="hub">
 
@@ -84,14 +91,14 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="" className="img-uni" width={250} height={250} alt="" />
+                                    <img src={arthurfoto} className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Arthur </p>
                                     <p className="nome-team">D'eça </p>
                                 </div>
                                 <div className="icon-team">
-                                    <a href=""><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
-                                    <a href="mailto:"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
+                                    <a href="https://www.linkedin.com/in/arthur-marchetti-9b4228249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><AiOutlineLinkedin color={"rgb(34, 147, 240)"} size={80} /></a>
+                                    <a href="mailto:avinhasmarchetti@gmail.com"><SiGmail color={"rgb(248, 64, 64)"} size={60} /></a>
                                 </div>
 
 
@@ -100,7 +107,7 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="src/assets/img/bruna-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+                                    <img src={bruna_foto} className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Bruna </p>
                                     <p className="nome-team">Cardozo </p>
@@ -116,7 +123,7 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="src/assets/img/borges-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+                                    <img src={borgesfoto} className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Eduardo  </p>
                                     <p className="nome-team">Borges </p>
@@ -136,7 +143,7 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="src/assets/img/luiza-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+                                    <img src={luizafoto} className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Luiza  </p>
                                     <p className="nome-team">Fischer  </p>
@@ -152,7 +159,7 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="src/assets/img/duda-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+                                    <img src={dudafoto} className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Maria </p>
                                     <p className="nome-team">Eduarda </p>
@@ -168,7 +175,7 @@ export function Home() {
                             <div className="fotos">
 
                                 <div className="img-team">
-                                    <img src="src/assets/img/rafagath-foto.jpg" className="img-uni" width={250} height={250} alt="" />
+                                    <img src={rafagathfoto} className="img-uni" width={250} height={250} alt="" />
 
                                     <p className="nome-team">Rafagath</p>
                                     <p className="nome-team">Klug </p>
