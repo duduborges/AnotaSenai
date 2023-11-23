@@ -36,10 +36,7 @@ const router = createBrowserRouter([
     path: "/help",
     element: <Ajuda />
   }
-  // {
-  //   path: "/help",
-  //   element: <Ajuda />
-  // }
+
 ])
 
 export { router }
