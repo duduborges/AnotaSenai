@@ -57,8 +57,7 @@ export function Register() {
     return (
         <div className="cad-total">
             <div className="top-cad">
-
-                <img className="logo" src="src\assets\img\Logo_anota.png" />
+                <img className="logo" src="../../assets/img/Logo_anota.png" />
             </div>
             <hr className="hr-login" />
             <h1>Cadastre-se</h1>
