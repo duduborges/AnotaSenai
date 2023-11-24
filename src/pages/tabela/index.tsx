@@ -51,7 +51,7 @@ export function Tabela() {
                 })
         }
         loadingAnots()
-        return
+        
     }, [user])
 
 

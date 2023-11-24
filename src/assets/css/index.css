@@ -322,10 +322,13 @@ a {
 }
 
 .map-postit-table {
-    padding-top: 4rem;
+    padding-top: 4.5rem;
     margin-top: 1rem;
     background-color: #F2889B;
-    height: 100vh;
+    height: 100%;
+   
+  
+   
     display: flex;
     font-family: 'Handlee', cursive;
     flex-direction: row;

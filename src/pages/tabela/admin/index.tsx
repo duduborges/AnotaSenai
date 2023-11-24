@@ -126,7 +126,7 @@ export function Admin() {
                 })
         }
         loadingAnots();
-        return
+        
     }, [user])
     function clear() {
         setNomeInput('')
